@@ -1,0 +1,2031 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>비개발자를 위한 바이브코딩 실습</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #002C5F;
+      --navy-2: #003673;
+      --text: #111111;
+      --muted: #6B7280;
+      --white: #FFFFFF;
+      --surface: #F8FAFC;
+      --line: rgba(0, 44, 95, 0.12);
+      --line-soft: rgba(0, 44, 95, 0.08);
+      --blue: #00AAD2;
+      --violet: #7C63D7;
+      --violet-soft: rgba(124, 99, 215, 0.12);
+      --blue-soft: rgba(0, 170, 210, 0.12);
+      --shadow-sm: 0 6px 18px rgba(0, 44, 95, 0.05);
+      --shadow-md: 0 12px 32px rgba(0, 44, 95, 0.08);
+      --radius-lg: 24px;
+      --radius-md: 16px;
+      --radius-sm: 12px;
+      --max: 1160px;
+      --nav-h: 68px;
+    }
+
+    * { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; font-size: 16px; }
+    body {
+      font-family: "Noto Sans KR", "Apple SD Gothic Neo", "Malgun Gothic", sans-serif;
+      color: var(--text);
+      background: var(--white);
+      line-height: 1.65;
+      word-break: keep-all;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { text-decoration: none; color: inherit; }
+    ul, ol { list-style: none; }
+    button { font: inherit; cursor: pointer; border: none; background: none; color: inherit; }
+
+    .container {
+      width: min(calc(100% - 32px), var(--max));
+      margin: 0 auto;
+    }
+
+    .section {
+      padding: 88px 0;
+      scroll-margin-top: calc(var(--nav-h) + 16px);
+    }
+    .section.alt { background: var(--surface); border-top: 1px solid var(--line-soft); border-bottom: 1px solid var(--line-soft); }
+
+    .eyebrow {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 13px;
+      font-weight: 700;
+      letter-spacing: 0.02em;
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+    .eyebrow::before {
+      content: "";
+      width: 24px;
+      height: 2px;
+      border-radius: 2px;
+      background: var(--violet);
+    }
+
+    .section-head { text-align: center; margin-bottom: 48px; }
+    .section-head h2 {
+      font-size: clamp(26px, 3.6vw, 38px);
+      line-height: 1.25;
+      color: var(--navy);
+      margin-bottom: 12px;
+      letter-spacing: -0.01em;
+    }
+    .section-head p {
+      font-size: 17px;
+      color: var(--muted);
+      max-width: 680px;
+      margin: 0 auto;
+    }
+
+    /* Header / Nav */
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 50;
+      height: var(--nav-h);
+      background: rgba(255, 255, 255, 0.88);
+      backdrop-filter: blur(14px);
+      -webkit-backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line-soft);
+    }
+    .nav-wrap {
+      height: 100%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
+    .brand {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      color: var(--navy);
+      min-width: 0;
+    }
+    .brand-logo {
+      width: 34px;
+      height: 34px;
+      object-fit: contain;
+      flex: 0 0 auto;
+      display: block;
+    }
+    .brand-text {
+      display: flex;
+      flex-direction: column;
+      line-height: 1.15;
+      min-width: 0;
+    }
+    .brand-text small {
+      font-size: 11px;
+      font-weight: 600;
+      color: var(--muted);
+      letter-spacing: 0.02em;
+      margin-bottom: 2px;
+    }
+    .brand-text strong {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+    }
+    .brand-divider {
+      width: 1px;
+      height: 26px;
+      background: var(--line);
+      margin: 0 4px;
+      flex: 0 0 auto;
+    }
+    .brand-page {
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--navy);
+      white-space: nowrap;
+      letter-spacing: -0.005em;
+    }
+    .nav-links {
+      display: flex;
+      gap: 4px;
+    }
+    .nav-links a {
+      padding: 9px 18px;
+      border-radius: 999px;
+      font-size: 14.5px;
+      font-weight: 600;
+      color: var(--muted);
+      white-space: nowrap;
+      transition: 0.2s ease;
+    }
+    .nav-links a:hover,
+    .nav-links a.active {
+      color: var(--navy);
+      background: rgba(0, 44, 95, 0.07);
+    }
+
+    /* Hero */
+    .hero {
+      padding: 80px 0 72px;
+      text-align: center;
+      background:
+        radial-gradient(ellipse at 20% 0%, rgba(124, 99, 215, 0.08), transparent 50%),
+        radial-gradient(ellipse at 80% 0%, rgba(0, 170, 210, 0.08), transparent 50%),
+        linear-gradient(180deg, #fafbff 0%, #ffffff 100%);
+    }
+    .hero-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 8px;
+      padding: 8px 16px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-size: 13px;
+      font-weight: 700;
+      color: var(--navy);
+      margin-bottom: 24px;
+    }
+    .hero-badge::before {
+      content: "";
+      width: 8px;
+      height: 8px;
+      border-radius: 50%;
+      background: var(--violet);
+      box-shadow: 0 0 0 4px rgba(124, 99, 215, 0.15);
+    }
+    .hero h1 {
+      font-size: clamp(32px, 5.4vw, 54px);
+      line-height: 1.15;
+      letter-spacing: -0.03em;
+      color: var(--navy);
+      margin-bottom: 20px;
+      font-weight: 900;
+    }
+    .hero h1 .accent { color: var(--violet); }
+    .hero-sub {
+      font-size: clamp(16px, 2vw, 19px);
+      color: var(--muted);
+      max-width: 620px;
+      margin: 0 auto 32px;
+    }
+    .hero-actions {
+      display: flex;
+      justify-content: center;
+      gap: 10px;
+      flex-wrap: wrap;
+      margin-bottom: 48px;
+    }
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 50px;
+      padding: 0 24px;
+      border-radius: 999px;
+      font-weight: 700;
+      font-size: 15px;
+      border: 1px solid transparent;
+      transition: 0.2s ease;
+    }
+    .btn-primary {
+      background: var(--navy);
+      color: #fff;
+    }
+    .btn-primary:hover { background: var(--navy-2); transform: translateY(-1px); }
+    .btn-secondary {
+      background: #fff;
+      color: var(--navy);
+      border-color: var(--line);
+    }
+    .btn-secondary:hover { background: var(--surface); transform: translateY(-1px); }
+
+    .hero-meta {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+      max-width: 880px;
+      margin: 0 auto;
+    }
+    .meta-card {
+      padding: 20px 22px;
+      border-radius: var(--radius-md);
+      background: #fff;
+      border: 1px solid var(--line);
+      text-align: left;
+      transition: transform 0.2s, box-shadow 0.2s;
+    }
+    .meta-card:hover { transform: translateY(-2px); box-shadow: var(--shadow-sm); }
+    .meta-card .step-dot {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 3px 10px;
+      border-radius: 999px;
+      background: var(--violet-soft);
+      color: var(--violet);
+      font-size: 11px;
+      font-weight: 900;
+      letter-spacing: 0.05em;
+      margin-bottom: 10px;
+    }
+    .meta-card strong {
+      display: block;
+      color: var(--navy);
+      font-size: 15px;
+      margin-bottom: 6px;
+    }
+    .meta-card > span:last-child {
+      display: block;
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.6;
+    }
+
+    /* Grids */
+    .grid { display: grid; gap: 18px; }
+    .grid-2 { grid-template-columns: repeat(2, 1fr); }
+    .grid-3 { grid-template-columns: repeat(3, 1fr); }
+    .grid-4 { grid-template-columns: repeat(4, 1fr); }
+    .grid-5 { grid-template-columns: repeat(5, 1fr); }
+
+    /* Cards */
+    .card {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 28px;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+      box-shadow: var(--shadow-sm);
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+    .card h3 { font-size: 19px; color: var(--navy); margin-bottom: 10px; line-height: 1.3; }
+    .card h4 { font-size: 16px; color: var(--navy); margin-bottom: 8px; line-height: 1.35; }
+    .card p { font-size: 15px; color: var(--muted); }
+
+    .pill {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-width: 32px;
+      height: 28px;
+      padding: 0 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      background: rgba(0, 44, 95, 0.08);
+      color: var(--navy);
+      margin-bottom: 14px;
+    }
+    .pill.violet { background: var(--violet-soft); color: var(--violet); }
+    .pill.blue { background: var(--blue-soft); color: var(--blue); }
+
+    /* Opening compare */
+    .compare-card {
+      padding: 32px 28px;
+    }
+    .compare-card .tag {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 14px;
+    }
+    .compare-card.before { background: var(--surface); }
+    .compare-card.before .tag { background: #E5E7EB; color: #4B5563; }
+    .compare-card.now { border-color: var(--blue); }
+    .compare-card.now .tag { background: var(--blue-soft); color: var(--blue); }
+
+    /* Flow (Vibe coding steps) */
+    .flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 14px;
+      position: relative;
+    }
+    .flow-step {
+      position: relative;
+      padding: 28px 22px;
+      border-radius: var(--radius-lg);
+      background: #fff;
+      border: 1px solid var(--line);
+      text-align: center;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .flow-step:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .flow-step:not(:last-child)::after {
+      content: "";
+      position: absolute;
+      right: -16px;
+      top: 50%;
+      width: 32px;
+      height: 32px;
+      transform: translateY(-50%);
+      background:
+        #fff
+        url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%237C63D7' stroke-width='2.6' stroke-linecap='round' stroke-linejoin='round'><polyline points='9 6 15 12 9 18'/></svg>")
+        center / 16px 16px no-repeat;
+      border: 1px solid rgba(124, 99, 215, 0.22);
+      border-radius: 50%;
+      box-shadow: 0 4px 12px rgba(124, 99, 215, 0.18);
+      z-index: 3;
+    }
+    .flow-step .num {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--violet-soft);
+      color: var(--violet);
+      font-weight: 900;
+      font-size: 15px;
+      margin-bottom: 14px;
+    }
+    .flow-step h3 {
+      font-size: 20px;
+      color: var(--navy);
+      margin-bottom: 8px;
+    }
+    .flow-step p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* Code basics */
+    .code-card {
+      padding: 32px 28px;
+      border-radius: var(--radius-lg);
+      background: #fff;
+      border: 1px solid var(--line);
+      position: relative;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .code-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .code-card::before {
+      content: "";
+      position: absolute;
+      right: -30px;
+      top: -30px;
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      opacity: 0.18;
+    }
+    .code-card.c1::before { background: var(--navy); }
+    .code-card.c2::before { background: var(--blue); }
+    .code-card.c3::before { background: var(--violet); }
+    .code-card .label {
+      font-size: 12px;
+      font-weight: 700;
+      letter-spacing: 0.08em;
+      color: var(--muted);
+      margin-bottom: 8px;
+      position: relative;
+    }
+    .code-card h3 {
+      font-size: 26px;
+      color: var(--navy);
+      margin-bottom: 6px;
+      position: relative;
+    }
+    .code-card .meta {
+      font-size: 14px;
+      color: var(--violet);
+      font-weight: 700;
+      margin-bottom: 14px;
+      position: relative;
+    }
+    .code-card p {
+      font-size: 15px;
+      color: var(--muted);
+      position: relative;
+    }
+
+    /* WHY WHAT HOW */
+    .wwh {
+      display: grid;
+      grid-template-columns: 2fr 1fr;
+      gap: 18px;
+      border-radius: var(--radius-lg);
+      overflow: hidden;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .wwh:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .wwh-side {
+      padding: 36px 32px;
+      background: #fff;
+    }
+    .wwh-side .role {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      margin-bottom: 20px;
+    }
+    .wwh-human .role { background: var(--violet-soft); color: var(--violet); }
+    .wwh-ai .role { background: var(--blue-soft); color: var(--blue); }
+    .wwh-ai {
+      background: linear-gradient(160deg, rgba(0, 170, 210, 0.05), rgba(255, 255, 255, 1));
+      border-left: 1px dashed var(--line);
+    }
+    .wwh-block { margin-bottom: 22px; }
+    .wwh-block:last-child { margin-bottom: 0; }
+    .wwh-block h3 {
+      font-size: 22px;
+      color: var(--navy);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: baseline;
+      gap: 10px;
+    }
+    .wwh-block h3 span {
+      font-size: 12px;
+      font-weight: 700;
+      color: var(--muted);
+      letter-spacing: 0.06em;
+    }
+    .wwh-block p {
+      font-size: 15px;
+      color: var(--muted);
+    }
+    .wwh-ai .wwh-block h3 { color: var(--blue); }
+    .wwh-summary {
+      margin-top: 28px;
+      padding: 20px 24px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, var(--navy), var(--violet));
+      color: #fff;
+      text-align: center;
+      font-size: 16px;
+      font-weight: 700;
+      line-height: 1.5;
+    }
+
+    /* Levels (Table) */
+    .levels-table-wrap {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      background: #fff;
+      overflow: hidden;
+      box-shadow: var(--shadow-sm);
+    }
+    .levels-scroll { overflow-x: auto; }
+    .levels-table {
+      width: 100%;
+      min-width: 640px;
+      border-collapse: collapse;
+      font-size: 15px;
+    }
+    .levels-table thead th {
+      text-align: left;
+      padding: 16px 20px;
+      background: var(--surface);
+      color: var(--navy);
+      font-weight: 800;
+      font-size: 13px;
+      letter-spacing: 0.04em;
+      border-bottom: 1px solid var(--line-soft);
+      white-space: nowrap;
+    }
+    .levels-table tbody td {
+      padding: 18px 20px;
+      border-top: 1px solid var(--line-soft);
+      vertical-align: middle;
+      color: var(--text);
+      transition: background 0.2s;
+    }
+    .levels-table tbody tr:hover td { background: rgba(0, 44, 95, 0.025); }
+    .levels-table tbody tr.today td { background: rgba(0, 170, 210, 0.04); }
+    .levels-table tbody tr.today:hover td { background: rgba(0, 170, 210, 0.08); }
+    .levels-table tbody tr.today td:first-child {
+      position: relative;
+    }
+    .levels-table tbody tr.today td:first-child::before {
+      content: "";
+      position: absolute;
+      left: 0;
+      top: 0;
+      bottom: 0;
+      width: 3px;
+      background: var(--blue);
+    }
+    /* Level 3(간이 데이터 앱): 업무형 앱 행과 동일한 흰 배경 */
+    .levels-table tbody tr.today.level3-plain td {
+      background: #fff;
+      color: var(--text);
+    }
+    .levels-table tbody tr.today.level3-plain:hover td {
+      background: rgba(0, 44, 95, 0.025);
+    }
+    .levels-table tbody tr.today.level3-plain td:first-child::before {
+      display: none;
+    }
+    .levels-table tbody tr.muted td { color: var(--muted); }
+    .level-badge {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      padding: 6px 14px;
+      border-radius: 999px;
+      background: var(--navy);
+      color: #fff;
+      font-size: 12.5px;
+      font-weight: 800;
+      letter-spacing: 0.02em;
+      white-space: nowrap;
+    }
+    .level-badge.dim { background: rgba(0, 44, 95, 0.12); color: var(--muted); }
+    .level-type { font-weight: 700; color: var(--navy); }
+    .muted .level-type { color: var(--muted); }
+    .level-reach {
+      display: inline-block;
+      padding: 4px 10px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      white-space: nowrap;
+    }
+    .level-reach.today-tag { background: var(--blue-soft); color: var(--blue); }
+    .level-reach.dim-tag { background: var(--line); color: var(--muted); }
+
+    /* Tools — LLM TOP 3 (계단식 비교) — 왼쪽: 스테이지+Copilot, 오른쪽: 축이 전체 높이에 맞춤 */
+    .llm-compare-wrap {
+      display: grid;
+      grid-template-columns: 1fr 110px;
+      gap: 24px;
+      align-items: stretch;
+    }
+    .llm-compare-main {
+      display: flex;
+      flex-direction: column;
+      min-width: 0;
+    }
+    .llm-stage {
+      position: relative;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 20px;
+      align-items: start;
+      padding: 32px 0 16px;
+    }
+    .llm-brand {
+      padding: 22px 22px 24px;
+      border-radius: var(--radius-md);
+      background: transparent;
+      transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .llm-brand:hover {
+      background: #fff;
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    /* 위계 층위: 상·중·하 계단식 */
+    .llm-brand.tier-bot { margin-top: 160px; }
+    .llm-brand.tier-mid { margin-top: 60px; }
+    .llm-brand.tier-top { margin-top: 0; }
+    .llm-head-row {
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      margin-bottom: 12px;
+    }
+    .llm-mark {
+      width: 52px;
+      height: 52px;
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .llm-brand.claude .llm-mark {
+      width: 58px;
+      height: 58px;
+    }
+    .llm-mark svg { width: 100%; height: 100%; }
+    .llm-logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .llm-brand h3 {
+      font-size: 26px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.02em;
+      margin: 0;
+      line-height: 1;
+    }
+    .llm-desc {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0 0 8px;
+      line-height: 1.55;
+    }
+    .llm-tools {
+      display: block;
+      font-size: 12.5px;
+      color: var(--navy);
+      font-weight: 700;
+      letter-spacing: -0.005em;
+    }
+    .llm-tools::before {
+      content: "코딩 도구  ";
+      color: var(--muted);
+      font-weight: 700;
+      letter-spacing: 0.04em;
+      margin-right: 4px;
+    }
+
+    /* 우측 세로 기준축 — 스테이지+Copilot 전체 높이만큼 세로선 연장 */
+    .llm-axis {
+      position: relative;
+      padding: 0 0 0 20px;
+      align-self: stretch;
+      min-height: 100%;
+    }
+    .llm-axis::before {
+      content: "";
+      position: absolute;
+      left: 10px;
+      top: 0;
+      bottom: 0;
+      width: 1px;
+      background: rgba(0, 44, 95, 0.25);
+    }
+    .llm-axis-item {
+      position: absolute;
+      left: 20px;
+      font-size: 13.5px;
+      font-weight: 700;
+      color: var(--text);
+      letter-spacing: -0.005em;
+      white-space: nowrap;
+    }
+    .llm-axis-item::before {
+      content: "";
+      position: absolute;
+      left: -12px;
+      top: 50%;
+      width: 9px;
+      height: 1px;
+      background: rgba(0, 44, 95, 0.35);
+    }
+    /* 라벨 위치: 축 전체 높이 대비 비율 (디에이치는 에테르노~ChatGPT 사이 상단·파란 표시 영역) */
+    .llm-axis-item.axis-top { top: 10%; }
+    .llm-axis-item.axis-mid { top: 30%; }
+    .llm-axis-item.axis-bot { top: 78%; }
+
+    /* Copilot — 박스 없이 인라인 스트립 (이미지 4 스타일) */
+    .copilot-inline {
+      margin-top: 24px;
+      display: flex;
+      align-items: center;
+      gap: 14px;
+      padding: 14px 4px;
+      background: transparent;
+      border: none;
+      border-top: 1px dashed var(--line-soft);
+      flex-wrap: wrap;
+    }
+    .copilot-mark {
+      width: 32px;
+      height: 32px;
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .copilot-mark svg { width: 100%; height: 100%; }
+    .copilot-logo-img {
+      width: 100%;
+      height: 100%;
+      object-fit: contain;
+      display: block;
+    }
+    .copilot-name {
+      font-size: 20px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: -0.01em;
+      margin-right: 4px;
+    }
+    .copilot-note {
+      flex: 1;
+      min-width: 200px;
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .copilot-note strong {
+      color: var(--navy);
+      font-weight: 800;
+    }
+
+    /* 한 줄 정리 */
+    .tools-note {
+      padding: 16px 20px;
+      margin-top: 20px;
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      border: 1px solid var(--line-soft);
+      text-align: center;
+      color: var(--muted);
+      font-size: 14.5px;
+      line-height: 1.6;
+    }
+    .tools-note strong { color: var(--navy); }
+
+    /* 실습 전 Canvas 안내 */
+    .canvas-notice {
+      display: flex;
+      align-items: flex-start;
+      gap: 16px;
+      padding: 20px 24px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, rgba(124, 99, 215, 0.06), rgba(0, 170, 210, 0.05));
+      border: 1px solid rgba(124, 99, 215, 0.25);
+      margin-bottom: 24px;
+    }
+    .canvas-notice-icon {
+      width: 40px;
+      height: 40px;
+      flex: 0 0 auto;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: var(--violet);
+      color: #fff;
+      font-size: 18px;
+      font-weight: 900;
+    }
+    .canvas-notice-body strong {
+      display: block;
+      font-size: 16px;
+      font-weight: 800;
+      color: var(--navy);
+      margin-bottom: 4px;
+      letter-spacing: -0.01em;
+    }
+    .canvas-notice-body p {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.6;
+      margin: 0;
+    }
+    .canvas-notice-body kbd {
+      display: inline-block;
+      padding: 2px 8px;
+      border-radius: 6px;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 800;
+      color: var(--violet);
+      margin: 0 2px;
+    }
+
+    /* 추가 작업 (Level 3 심화) */
+    .bonus-shell {
+      margin-top: 28px;
+      border-radius: var(--radius-lg);
+      border: 1px dashed rgba(124, 99, 215, 0.4);
+      background: linear-gradient(180deg, rgba(124, 99, 215, 0.03), rgba(255, 255, 255, 0.9));
+      padding: 32px;
+    }
+    .bonus-head {
+      margin-bottom: 22px;
+    }
+    .bonus-tag {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 800;
+      background: var(--violet-soft);
+      color: var(--violet);
+      margin-bottom: 10px;
+      letter-spacing: 0.01em;
+    }
+    .bonus-head h3 {
+      font-size: 22px;
+      color: var(--navy);
+      margin-bottom: 6px;
+      letter-spacing: -0.01em;
+    }
+    .bonus-head p {
+      font-size: 14.5px;
+      color: var(--muted);
+      margin: 0;
+      line-height: 1.6;
+    }
+    .bonus-steps {
+      display: grid;
+      gap: 14px;
+    }
+    .bonus-step {
+      display: grid;
+      grid-template-columns: 44px 1fr;
+      gap: 16px;
+      align-items: start;
+      padding: 18px 20px;
+      background: #fff;
+      border-radius: var(--radius-md);
+      border: 1px solid var(--line-soft);
+    }
+    .bonus-num {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: var(--violet-soft);
+      color: var(--violet);
+      font-weight: 900;
+      font-size: 14px;
+    }
+    .bonus-step-body strong {
+      display: block;
+      font-size: 16px;
+      color: var(--navy);
+      margin-bottom: 4px;
+      font-weight: 800;
+    }
+    .bonus-step-body p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin: 0 0 10px;
+    }
+    .bonus-step-body p:last-child { margin-bottom: 0; }
+    .bonus-step-body .prompt-text {
+      margin-top: 8px;
+    }
+
+    /* Habits */
+    .habit-card {
+      padding: 22px 20px;
+      text-align: left;
+    }
+    .habit-card .num-dot {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      width: 32px;
+      height: 32px;
+      border-radius: 50%;
+      background: var(--violet-soft);
+      color: var(--violet);
+      font-weight: 900;
+      font-size: 14px;
+      margin-bottom: 12px;
+    }
+    .habit-card h4 {
+      font-size: 16px;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .habit-card p {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+
+    /* Practice / Lab */
+    .lab-shell {
+      background: #fff;
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      box-shadow: var(--shadow-md);
+      overflow: hidden;
+    }
+    .lab-tabs {
+      display: flex;
+      gap: 8px;
+      padding: 14px;
+      background: var(--surface);
+      border-bottom: 1px solid var(--line-soft);
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .lab-tabs::-webkit-scrollbar { display: none; }
+    .lab-tab {
+      padding: 12px 20px;
+      border-radius: 999px;
+      background: #fff;
+      border: 1px solid var(--line);
+      font-size: 14px;
+      font-weight: 700;
+      color: var(--muted);
+      white-space: nowrap;
+      transition: 0.2s ease;
+    }
+    .lab-tab:hover { color: var(--navy); }
+    .lab-tab.active {
+      background: var(--navy);
+      color: #fff;
+      border-color: var(--navy);
+    }
+
+    .lab-panel { display: none; padding: 32px; }
+    .lab-panel.active { display: block; animation: fadeIn 0.3s ease; }
+    @keyframes fadeIn { from { opacity: 0; transform: translateY(6px); } to { opacity: 1; transform: translateY(0); } }
+
+    .lab-head {
+      padding: 22px 24px;
+      border-radius: var(--radius-md);
+      background: linear-gradient(135deg, rgba(0, 44, 95, 0.03), rgba(124, 99, 215, 0.04));
+      border: 1px solid var(--line-soft);
+      margin-bottom: 24px;
+    }
+    .lab-head .tag {
+      display: inline-block;
+      padding: 5px 12px;
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 700;
+      background: var(--blue-soft);
+      color: var(--blue);
+      margin-bottom: 10px;
+    }
+    .lab-panel.violet-theme .lab-head .tag { background: var(--violet-soft); color: var(--violet); }
+    .lab-head h3 {
+      font-size: 24px;
+      color: var(--navy);
+      margin-bottom: 6px;
+    }
+    .lab-head p {
+      font-size: 15px;
+      color: var(--muted);
+    }
+
+    .steps { display: grid; gap: 16px; }
+    .step-card {
+      border: 1px solid var(--line);
+      border-radius: var(--radius-lg);
+      padding: 24px;
+      background: #fff;
+      display: grid;
+      grid-template-columns: 84px 1fr;
+      gap: 20px;
+    }
+    .step-no {
+      border-radius: var(--radius-md);
+      background: var(--navy);
+      color: #fff;
+      padding: 16px 12px;
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      gap: 2px;
+      height: fit-content;
+      min-height: 84px;
+    }
+    .step-no span { font-size: 11px; opacity: 0.82; letter-spacing: 0.05em; }
+    .step-no strong { font-size: 22px; }
+    .lab-panel.violet-theme .step-no { background: var(--violet); }
+
+    .step-body h4 {
+      font-size: 20px;
+      color: var(--navy);
+      margin-bottom: 14px;
+      line-height: 1.3;
+    }
+    .prompt-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 12px;
+    }
+    .prompt-box {
+      background: var(--surface);
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius-md);
+      padding: 16px;
+      display: flex;
+      flex-direction: column;
+      gap: 8px;
+    }
+    .prompt-box strong {
+      font-size: 12px;
+      font-weight: 800;
+      color: var(--navy);
+      letter-spacing: 0.04em;
+    }
+    .prompt-text {
+      position: relative;
+      background: #fff;
+      border: 1px solid var(--line-soft);
+      border-radius: var(--radius-sm);
+      padding: 12px 38px 12px 14px;
+      font-size: 13.5px;
+      color: #374151;
+      line-height: 1.6;
+      white-space: pre-wrap;
+      flex: 1;
+    }
+    .prompt-text.is-collapsible {
+      max-height: 108px;
+      overflow: hidden;
+      cursor: pointer;
+      transition: max-height 0.35s ease, padding 0.2s ease;
+    }
+    .prompt-text.is-collapsible::after {
+      content: "⌄ 전체 보기";
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      height: 52px;
+      display: flex;
+      align-items: flex-end;
+      justify-content: center;
+      padding-bottom: 10px;
+      font-size: 11.5px;
+      font-weight: 800;
+      color: var(--violet);
+      letter-spacing: 0.04em;
+      background: linear-gradient(180deg, rgba(255, 255, 255, 0) 0%, #fff 72%);
+      pointer-events: none;
+      transition: opacity 0.2s;
+    }
+    .prompt-text.is-collapsible:hover::after { color: var(--navy); }
+    .prompt-text.is-collapsible.is-expanded {
+      max-height: 1600px;
+      cursor: default;
+      padding-bottom: 38px;
+    }
+    .prompt-text.is-collapsible.is-expanded::after {
+      content: "▴ 접기";
+      top: auto;
+      height: auto;
+      bottom: 10px;
+      left: 50%;
+      right: auto;
+      transform: translateX(-50%);
+      padding: 4px 12px;
+      background: var(--violet-soft);
+      color: var(--violet);
+      border-radius: 999px;
+      font-size: 11px;
+      letter-spacing: 0.02em;
+    }
+    .prompt-box .muted-text {
+      font-size: 13.5px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .copy-btn {
+      position: absolute;
+      top: 8px;
+      right: 8px;
+      width: 28px;
+      height: 28px;
+      border-radius: 8px;
+      border: 1px solid var(--line);
+      background: #fff;
+      color: var(--navy);
+      font-weight: 900;
+      font-size: 13px;
+      transition: 0.2s;
+    }
+    .copy-btn:hover { background: var(--surface); }
+    .copy-btn.copied {
+      background: var(--blue);
+      color: #fff;
+      border-color: var(--blue);
+    }
+
+    /* Closing */
+    .closing-grid {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+      margin-bottom: 36px;
+    }
+    .closing-card {
+      padding: 28px 24px;
+      text-align: left;
+      background: linear-gradient(180deg, #fff 0%, #fafbff 100%);
+    }
+    .closing-card .icon {
+      font-size: 24px;
+      margin-bottom: 14px;
+      width: 44px;
+      height: 44px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 12px;
+      background: var(--violet-soft);
+      color: var(--violet);
+      font-weight: 900;
+    }
+
+    /* Footer */
+    .site-footer {
+      background: var(--navy);
+      color: rgba(255, 255, 255, 0.75);
+      padding: 32px 0;
+      text-align: center;
+      font-size: 13px;
+    }
+    .site-footer strong { color: #fff; display: block; margin-bottom: 4px; }
+
+    /* Responsive */
+    @media (max-width: 960px) {
+      .section { padding: 72px 0; }
+      .hero { padding: 60px 0 56px; }
+      .grid-3 { grid-template-columns: 1fr; }
+      .grid-4 { grid-template-columns: repeat(2, 1fr); }
+      .grid-5 { grid-template-columns: repeat(2, 1fr); }
+      .flow { grid-template-columns: repeat(2, 1fr); }
+      .flow-step:not(:last-child)::after { display: none; }
+      .levels-main { grid-template-columns: 1fr; }
+      .wwh { grid-template-columns: 1fr; }
+      .wwh-ai { border-left: none; border-top: 1px dashed var(--line); }
+      .prompt-grid { grid-template-columns: 1fr; }
+      .closing-grid { grid-template-columns: 1fr; }
+      .hero-meta { grid-template-columns: 1fr; }
+      .llm-compare-wrap { grid-template-columns: 1fr; gap: 14px; }
+      .llm-compare-main { gap: 10px; }
+      .llm-stage {
+        grid-template-columns: 1fr;
+        gap: 8px;
+        padding: 4px 0 0;
+        align-items: stretch;
+      }
+      .llm-brand,
+      .llm-brand.tier-bot,
+      .llm-brand.tier-mid,
+      .llm-brand.tier-top { margin-top: 0; }
+      .llm-brand {
+        background: #fff;
+        border: 1px solid var(--line-soft);
+      }
+      .copilot-inline { margin-top: 6px; border-top: none; padding: 14px 18px; background: #fff; border: 1px solid var(--line-soft); border-radius: var(--radius-md); }
+      .llm-axis {
+        display: flex;
+        flex-direction: row;
+        justify-content: space-between;
+        align-items: center;
+        padding: 14px 22px;
+        border: 1px solid var(--line-soft);
+        border-radius: var(--radius-md);
+        background: #fff;
+        min-height: 0;
+      }
+      .llm-axis::before {
+        left: 22px;
+        right: 22px;
+        top: 50%;
+        bottom: auto;
+        width: auto;
+        height: 1px;
+        transform: translateY(-50%);
+        background: rgba(0, 44, 95, 0.2);
+      }
+      .llm-axis-item,
+      .llm-axis-item.axis-top,
+      .llm-axis-item.axis-mid,
+      .llm-axis-item.axis-bot {
+        position: relative;
+        left: auto;
+        top: auto;
+        background: #fff;
+        padding: 0 8px;
+        z-index: 1;
+      }
+      .llm-axis-item::before { display: none; }
+    }
+
+    @media (max-width: 600px) {
+      :root { --nav-h: 60px; }
+      .section { padding: 60px 0; }
+      .section-head { margin-bottom: 36px; }
+      .grid-2 { grid-template-columns: 1fr; }
+      .grid-4, .grid-5 { grid-template-columns: 1fr; }
+      .step-card { grid-template-columns: 1fr; }
+      .step-no { flex-direction: row; justify-content: flex-start; min-height: auto; padding: 10px 14px; }
+      .lab-panel { padding: 20px; }
+      .nav-links { gap: 2px; }
+      .nav-links a { padding: 7px 12px; font-size: 13px; }
+      .brand { gap: 9px; }
+      .brand-logo { width: 32px; height: 32px; }
+      .brand-text small { font-size: 10.5px; }
+      .brand-text strong { font-size: 13.5px; }
+      .brand-divider,
+      .brand-page { display: none; }
+      .copilot-inline { padding: 16px 18px; gap: 10px; }
+      .copilot-name { font-size: 18px; }
+      .llm-brand h3 { font-size: 22px; }
+      .canvas-notice { padding: 16px 18px; gap: 12px; }
+      .canvas-notice-icon { width: 36px; height: 36px; }
+      .bonus-shell { padding: 22px 18px; }
+      .bonus-step { padding: 16px 16px; grid-template-columns: 36px 1fr; gap: 12px; }
+      .bonus-num { width: 32px; height: 32px; font-size: 13px; }
+      .bonus-head h3 { font-size: 20px; }
+    }
+
+    @media (max-width: 400px) {
+      .brand-text small { display: none; }
+      .nav-links a { padding: 7px 10px; font-size: 12.5px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="#top" class="brand" aria-label="워크이노베이션센터 AI디자인랩 · 바이브코딩 실습">
+        <img src="https://raw.githubusercontent.com/SinaBroMan/aidesignlab_logo/main/AI%EB%94%94%EC%9E%90%EC%9D%B8%EB%9E%A9_mark.png" alt="AI디자인랩 로고" class="brand-logo" width="34" height="34" decoding="async" referrerpolicy="no-referrer" />
+        <span class="brand-text">
+          <small>워크이노베이션센터</small>
+          <strong>AI디자인랩</strong>
+        </span>
+        <span class="brand-divider" aria-hidden="true"></span>
+        <span class="brand-page">바이브코딩 실습</span>
+      </a>
+      <nav class="nav-links" id="sectionNav" aria-label="섹션 내비게이션">
+        <a href="#top" data-sections="top,intro">소개</a>
+        <a href="#vibe" data-sections="vibe,code,framework,levels,tools,habits">핵심 개념</a>
+        <a href="#practice" data-sections="practice,closing">실습하기</a>
+      </nav>
+    </div>
+  </header>
+
+  <main id="top">
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="container">
+        <span class="hero-badge">비개발자를 위한 실습형 입문</span>
+        <h1>말로 설명하면, AI가 만든다.<br><span class="accent">바이브코딩</span> 시작하기</h1>
+        <p class="hero-sub">
+          개발자가 아니어도 괜찮습니다. 내 아이디어를 AI에게 설명하고 다듬어가며, 웹페이지와 앱을 직접 만들어봅니다.
+        </p>
+        <div class="hero-actions">
+          <a href="#vibe" class="btn btn-primary">개념부터 보기</a>
+          <a href="#practice" class="btn btn-secondary">실습 바로 시작</a>
+        </div>
+        <div class="hero-meta">
+          <div class="meta-card">
+            <span class="step-dot">01</span>
+            <strong>개념 이해와 실습으로 구성</strong>
+            <span>바이브코딩이 무엇인지 짧게 이해하고, 간단한 웹페이지를 직접 만들어봅니다.</span>
+          </div>
+          <div class="meta-card">
+            <span class="step-dot">02</span>
+            <strong>순차적으로 아래로 스크롤</strong>
+            <span>이 페이지의 내용을 순서대로 스크롤하며, 확인하고 따라해보세요.</span>
+          </div>
+          <div class="meta-card">
+            <span class="step-dot">03</span>
+            <strong>시작은 이렇게</strong>
+            <span>처음부터 완벽하지 않아도 됩니다. 작게 만든 뒤 AI에게 계속 수정 요청하세요.</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- OPENING -->
+    <section class="section" id="intro">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">오프닝</span>
+          <h2>개발자만의 영역이었던 일,<br>이제 비개발자도 시작할 수 있습니다.</h2>
+          <p>중요한 것은 복잡한 코딩 능력과 기술이 아니라, 무엇을 만들지 분명히 설명하는 힘입니다.</p>
+        </div>
+        <div class="grid grid-2">
+          <article class="card compare-card before">
+            <span class="tag">과거 (Before)</span>
+            <h3>개발자만 가능했던 일</h3>
+            <p>코드 문법을 외우고, 오류를 고치고, 여러 파일을 연결해야 했습니다. 아이디어를 화면으로 옮기는 장벽이 매우 높았습니다.</p>
+          </article>
+          <article class="card compare-card now">
+            <span class="tag">현재 (Now)</span>
+            <h3>비개발자도 가능한 일</h3>
+            <p>AI가 코드 초안을 빠르게 만들어 줍니다. 우리는 "무엇을 왜 만들지"만 명확히 설명하면 됩니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- VIBE CODING -->
+    <section class="section alt" id="vibe">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">바이브코딩이란?</span>
+          <h2>말 한 번으로 끝나는 마법이 아니라,<br>설명하고 확인하고 다듬는 작업입니다.</h2>
+          <p>좋은 결과는 좋은 설명에서 시작해, 몇 번의 수정 요청을 통해 완성됩니다.</p>
+        </div>
+        <div class="flow" aria-label="바이브코딩 4단계">
+          <div class="flow-step">
+            <div class="num">1</div>
+            <h3>설명</h3>
+            <p>누가, 왜, 어떤 화면이 필요한지 사람의 언어로 전합니다.</p>
+          </div>
+          <div class="flow-step">
+            <div class="num">2</div>
+            <h3>생성</h3>
+            <p>AI가 HTML·CSS·JS 초안을 빠르게 만들어냅니다.</p>
+          </div>
+          <div class="flow-step">
+            <div class="num">3</div>
+            <h3>확인</h3>
+            <p>결과물을 실제로 보며 의도와 맞는지 체크합니다.</p>
+          </div>
+          <div class="flow-step">
+            <div class="num">4</div>
+            <h3>수정</h3>
+            <p>아쉬운 점을 구체적으로 다시 요청하며 완성도를 올립니다.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CODE BASICS -->
+    <section class="section" id="code">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">코드가 뭔데?</span>
+          <h2>웹페이지 or 앱은 결국<br>구조·꾸밈·동작의 조합입니다.</h2>
+          <p>건축에 비유하면 아주 쉽습니다. 처음에는 이 세 가지만 기억해도 충분합니다.</p>
+        </div>
+        <div class="grid grid-3">
+          <article class="code-card c1">
+            <div class="label">구조</div>
+            <h3>HTML</h3>
+            <div class="meta">🏗️ 건물의 뼈대</div>
+            <p>제목, 버튼, 카드 같은 화면의 기본 구성 요소를 배치합니다.</p>
+          </article>
+          <article class="code-card c2">
+            <div class="label">꾸밈</div>
+            <h3>CSS</h3>
+            <div class="meta">🎨 건물의 인테리어</div>
+            <p>색상, 여백, 글자 크기 등 보기 좋게 만드는 디자인을 담당합니다.</p>
+          </article>
+          <article class="code-card c3">
+            <div class="label">동작</div>
+            <h3>JavaScript</h3>
+            <div class="meta">⚙️ 전기와 수도 시설</div>
+            <p>버튼을 누르면 반응하고, 데이터가 바뀌는 "기능"을 만들어줍니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY WHAT HOW -->
+    <section class="section alt" id="framework">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">핵심 구조</span>
+          <h2>사람은 WHY·WHAT에 집중,<br>HOW는 AI가 맡습니다.</h2>
+          <p>코드를 아는 능력보다 문제와 니즈를 정의하는 능력이 더 중요해진 이유입니다.</p>
+        </div>
+        <div class="wwh">
+          <div class="wwh-side wwh-human">
+            <span class="role">사람의 역할</span>
+            <div class="wwh-block">
+              <h3>WHY <span>왜 만드는가</span></h3>
+              <p>누구에게 어떤 가치를 줄지, 어떤 문제를 풀지 정하는 영역입니다.</p>
+            </div>
+            <div class="wwh-block">
+              <h3>WHAT <span>무엇을 만드는가</span></h3>
+              <p>어떤 화면·기능·순서가 필요한지 구체화하는 영역입니다.</p>
+            </div>
+          </div>
+          <div class="wwh-side wwh-ai">
+            <span class="role">AI의 역할</span>
+            <div class="wwh-block">
+              <h3>HOW <span>어떻게 구현할까</span></h3>
+              <p>HTML, CSS, JavaScript, 인터랙션 구현을 AI가 빠르게 도와줍니다.</p>
+            </div>
+          </div>
+        </div>
+        <div class="wwh-summary">
+          구체적으로 말해주지 않아도 AI가 어느정도는 알아서 만들어 줍니다. 그러나, 사람의 상상력과 기획력에 따라 결과는 확연히 달라집니다.
+        </div>
+      </div>
+    </section>
+
+    <!-- LEVELS -->
+    <section class="section" id="levels">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">비개발자 레벨</span>
+          <h2>이번 과정 실습은 Level 1~2 중심으로, <br>Level 3 일부까지 다룹니다.</br></h2>
+          <p>현실적으로 비개발자가 바로 만들어볼 수 있는 범위이자, 업무에 곧바로 연결할 수 있는 수준입니다.</p>
+        </div>
+        <div class="levels-table-wrap">
+          <div class="levels-scroll">
+            <table class="levels-table">
+              <thead>
+                <tr>
+                  <th>레벨</th>
+                  <th>구분</th>
+                  <th>설명 및 예시</th>
+                  <th>도달 가능성</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="today">
+                  <td><span class="level-badge">Level 1</span></td>
+                  <td><span class="level-type">정적 페이지</span></td>
+                  <td>보는 용도의 화면 (사내 이벤트 안내, 팀 소개, 카드형 정보)</td>
+                  <td><span class="level-reach today-tag">이번 실습</span></td>
+                </tr>
+                <tr class="today">
+                  <td><span class="level-badge">Level 2</span></td>
+                  <td><span class="level-type">상호작용 페이지</span></td>
+                  <td>버튼 반응, 입력폼, 간단한 필터·계산기 (견적 계산기, 설문 폼)</td>
+                  <td><span class="level-reach today-tag">이번 실습</span></td>
+                </tr>
+                <tr class="today">
+                  <td><span class="level-badge">Level 3</span></td>
+                  <td><span class="level-type">디자인·데이터 심화</span></td>
+                  <td>디자인 레퍼런스 반영, 외부 데이터 불러오기·API 연동 (스타일 리디자인, 날씨·뉴스 조회)</td>
+                  <td><span class="level-reach today-tag">심화 실습</span></td>
+                </tr>
+                <tr class="muted">
+                  <td><span class="level-badge dim">Level 4</span></td>
+                  <td><span class="level-type">업무형 앱</span></td>
+                  <td>실제 DB 연동, 로그인·권한, 타 부서 연계 (부서 운영툴)</td>
+                  <td><span class="level-reach dim-tag">별도 학습 필요</span></td>
+                </tr>
+                <tr class="muted">
+                  <td><span class="level-badge dim">Level 5</span></td>
+                  <td><span class="level-type">서비스형 제품</span></td>
+                  <td>다수 고객 대상, 결제 연동, 서버 안정성 유지 (상용 서비스)</td>
+                  <td><span class="level-reach dim-tag">전문 개발 영역</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- TOOLS -->
+    <section class="section alt" id="tools">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">LLM AI TOP 3</span>
+          <h2>어떤 도구를 쓸까.</h2>
+          <p>대표 LLM의 특성과 코딩 활용 도구를 한눈에 비교합니다.</p>
+        </div>
+
+        <div class="llm-compare-wrap">
+          <div class="llm-compare-main">
+          <div class="llm-stage">
+            <!-- ChatGPT (bottom) -->
+            <article class="llm-brand tier-bot chatgpt">
+              <div class="llm-head-row">
+                <span class="llm-mark" aria-hidden="true">
+                  <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                    <path fill="#000" d="M59.53 26.21a15.94 15.94 0 0 0-1.37-13.08 16.1 16.1 0 0 0-17.35-7.72 15.94 15.94 0 0 0-12.02-5.36 16.1 16.1 0 0 0-15.35 11.14 15.95 15.95 0 0 0-10.67 7.73 16.11 16.11 0 0 0 1.98 18.86 15.94 15.94 0 0 0 1.36 13.08 16.1 16.1 0 0 0 17.35 7.72 15.93 15.93 0 0 0 12.02 5.37 16.1 16.1 0 0 0 15.36-11.15 15.95 15.95 0 0 0 10.67-7.73 16.12 16.12 0 0 0-1.98-18.86ZM35.8 57.96a11.95 11.95 0 0 1-7.67-2.77l.38-.22 12.74-7.36a2.07 2.07 0 0 0 1.05-1.81V27.84l5.38 3.11a.2.2 0 0 1 .1.14v14.88a11.97 11.97 0 0 1-11.98 11.99ZM10.04 46.96a11.94 11.94 0 0 1-1.43-8.04l.38.23 12.75 7.36a2.07 2.07 0 0 0 2.09 0l15.57-8.99v6.21a.19.19 0 0 1-.08.16L26.42 51.34a11.99 11.99 0 0 1-16.38-4.38ZM6.7 19.16a11.94 11.94 0 0 1 6.24-5.27v15.14a2.04 2.04 0 0 0 1.04 1.8l15.5 8.95-5.38 3.1a.19.19 0 0 1-.18 0L11.04 35.44A11.99 11.99 0 0 1 6.7 19.16ZM49.13 29.02 33.55 20.03l5.37-3.1a.19.19 0 0 1 .18 0l12.88 7.44a11.99 11.99 0 0 1-1.85 21.64V30.87a2.05 2.05 0 0 0-1-1.85Zm5.35-8.06-.38-.23-12.73-7.41a2.07 2.07 0 0 0-2.1 0l-15.56 8.98v-6.21a.18.18 0 0 1 .07-.16L36.52 8.6a11.99 11.99 0 0 1 17.96 12.36ZM21.1 32l-5.38-3.1a.2.2 0 0 1-.1-.14V13.86a12 12 0 0 1 19.65-9.22l-.38.22-12.73 7.36a2.07 2.07 0 0 0-1.05 1.81L21.09 32Zm2.92-6.3L31 21.66l6.96 4.02v8.04L30.99 37.7l-6.97-4.02Z"/>
+                  </svg>
+                </span>
+                <h3>ChatGPT</h3>
+              </div>
+              <p class="llm-desc">멀티모달 (글, 음성, 이미지, 코딩)</p>
+              <small class="llm-tools">Codex</small>
+            </article>
+
+            <!-- Gemini (middle) -->
+            <article class="llm-brand tier-mid gemini">
+              <div class="llm-head-row">
+                <span class="llm-mark" aria-hidden="true">
+                  <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+                    <defs>
+                      <radialGradient id="gemGrad" cx="50%" cy="50%" r="60%">
+                        <stop offset="0%" stop-color="#89B3FF"/>
+                        <stop offset="50%" stop-color="#1A73E8"/>
+                        <stop offset="100%" stop-color="#0B57D0"/>
+                      </radialGradient>
+                    </defs>
+                    <path d="M32 2 C32 18 46 32 62 32 C46 32 32 46 32 62 C32 46 18 32 2 32 C18 32 32 18 32 2 Z" fill="url(#gemGrad)"/>
+                  </svg>
+                </span>
+                <h3>Gemini</h3>
+              </div>
+              <p class="llm-desc">멀티모달 (글, 영상, 이미지, 음악, 코딩)</p>
+              <small class="llm-tools">Google AI Studio · Antigravity</small>
+            </article>
+
+            <!-- Claude (top) -->
+            <article class="llm-brand tier-top claude">
+              <div class="llm-head-row">
+                <span class="llm-mark" aria-hidden="true">
+                  <img src="https://raw.githubusercontent.com/SinaBroMan/claude-logo-/main/%ED%81%B4%EB%A1%9C%EB%93%9C-removebg-preview%20(1).png" alt="Claude 로고" class="llm-logo-img" width="116" height="116" decoding="async" referrerpolicy="no-referrer" />
+                </span>
+                <h3>Claude</h3>
+              </div>
+              <p class="llm-desc">논리 분석 · 추론 · 코딩 · 에이전틱</p>
+              <small class="llm-tools">Claude Code</small>
+            </article>
+          </div>
+
+          <!-- Copilot — 축약형 표기 (박스 없음); 비교축 높이에 포함되도록 main 안에 배치 -->
+          <div class="copilot-inline">
+            <span class="copilot-mark" aria-hidden="true">
+              <img src="https://raw.githubusercontent.com/SinaBroMan/copilot_logo/main/copilot_OIP.webp" alt="Copilot 로고" class="copilot-logo-img" width="64" height="64" decoding="async" referrerpolicy="no-referrer" />
+            </span>
+            <span class="copilot-name">Copilot</span>
+            <span class="copilot-note"><strong>사내용 AI - Level 1~2 수준은 충분히 활용 가능</strong></span>
+          </div>
+          </div>
+
+          <!-- 우측 상대수준 비교축 (스테이지+Copilot 전체 높이) -->
+          <aside class="llm-axis" aria-label="상대적 수준 비교축">
+            <span class="llm-axis-item axis-top">에테르노</span>
+            <span class="llm-axis-item axis-mid">디에이치</span>
+            <span class="llm-axis-item axis-bot">힐스테이트</span>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- HABITS -->
+    <section class="section" id="habits">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">잘하는 사람의 습관</span>
+          <h2>좋은 결과는 좋은 프롬프트가 아니라,<br>좋은 문제정의에서 나옵니다.</h2>
+          <p>아래 5가지만 지켜도 실습 결과가 훨씬 좋아집니다.</p>
+        </div>
+        <div class="grid grid-5">
+          <article class="card habit-card">
+            <span class="num-dot">1</span>
+            <h4>한 문장 정의</h4>
+            <p>만들고 싶은 것의 목적을 딱 한 문장으로 정리합니다.</p>
+          </article>
+          <article class="card habit-card">
+            <span class="num-dot">2</span>
+            <h4>특정 사용자 떠올리기</h4>
+            <p>"누구나"가 아니라 "우리 팀 김대리"가 쓴다고 상상합니다.</p>
+          </article>
+          <article class="card habit-card">
+            <span class="num-dot">3</span>
+            <h4>눈에 보이듯 묘사</h4>
+            <p>"상단에 검색바, 가운데 파란 버튼"처럼 구체적으로 설명합니다.</p>
+          </article>
+          <article class="card habit-card">
+            <span class="num-dot">4</span>
+            <h4>작게 쪼개기</h4>
+            <p>한 번에 크게 말하지 말고, 뼈대부터 만든 뒤 살을 붙입니다.</p>
+          </article>
+          <article class="card habit-card">
+            <span class="num-dot">5</span>
+            <h4>결과 보고 수정</h4>
+            <p>결과물을 본 뒤 "이 부분만 바꿔줘" 하고 반복 요청합니다.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- PRACTICE -->
+    <section class="section alt" id="practice">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">실습 안내</span>
+          <h2>이제 직접 만들어봅니다.</h2>
+          <p>추천 도구는 <strong style="color:var(--navy)">Gemini</strong>입니다. Canvas 모드에서 결과 화면을 실시간으로 보며 따라해보세요.</p>
+        </div>
+
+        <!-- Canvas 사전 안내 -->
+        <div class="canvas-notice" role="note">
+          <div class="canvas-notice-icon" aria-hidden="true">!</div>
+          <div class="canvas-notice-body">
+            <strong>프롬프트 입력 전, Gemini <kbd>Canvas</kbd> 도구를 먼저 켜주세요</strong>
+            <p>Gemini 입력창 하단의 도구 모음에서 <kbd>Canvas</kbd>를 활성화해야 결과 화면이 실시간으로 렌더링됩니다. 활성화하지 않으면 코드만 텍스트로 출력되니 꼭 먼저 설정하세요.</p>
+          </div>
+        </div>
+
+        <div class="lab-shell">
+          <!-- PRACTICE: L1 + L2 -->
+          <div class="lab-panel active" id="panel-survive" role="tabpanel">
+            <div class="lab-head">
+              <span class="tag">실습 · Gemini Canvas</span>
+              <h3>🧭 회사 생존 유형 테스트</h3>
+              <p>회사에서 나는 어떤 방식으로 살아남는 사람일까? 가벼운 질문 몇 개로 알아보는 밈 테스트 페이지를 만듭니다. Level 1 → Level 2 → Level 3로 갈수록 결과가 눈에 보이게 달라져요.</p>
+            </div>
+
+            <div class="steps">
+              <!-- LEVEL 1 -->
+              <article class="step-card">
+                <div class="step-no"><span>LEVEL</span><strong>1</strong></div>
+                <div class="step-body">
+                  <h4>테스트 소개 페이지 만들기</h4>
+                  <div class="prompt-grid">
+                    <div class="prompt-box">
+                      <strong>🎯 목표</strong>
+                      <div class="muted-text">아직 질문 기능은 없음. 제목 · 짧은 소개 · 시작 버튼 · 4개 유형 미리보기 카드가 보이는 깔끔한 정적 소개 페이지.</div>
+                    </div>
+                    <div class="prompt-box">
+                      <strong>💬 입력 프롬프트</strong>
+                      <div class="prompt-text">회사 생존 유형 테스트 페이지를 예쁘게 만들어줘.
+
+맨 위에는 제목이 크게 보이고, 바로 아래에 이 테스트가 어떤 건지 한두 줄짜리 짧은 소개가 있었으면 좋겠어.
+그 아래에 "테스트 시작" 버튼을 크고 눈에 띄게 넣어줘.
+
+아직 질문 기능은 넣지 말고, 어떤 결과 유형이 나오는지 미리 보여주는 소개 카드 4개를 가로로 깔끔하게 보여줘.
+유형은 아래 4가지야.
+- 조용한 생존러
+- 눈치 만렙 조율러
+- 일머리 직진러
+- 아이디어 생존러
+각 카드에는 유형 이름이랑 한 줄 소개만 가볍게 들어가면 돼.
+
+분위기는 요즘 밈 테스트 앱처럼 세련되고 가볍게 해줘.
+배경은 흰색, 포인트는 네이비(#002C5F), 보조색은 바이올렛(#7C63D7) 정도로 쓰면 좋겠어.
+모바일에서도 예쁘게 보이게 해줘.<button class="copy-btn" data-copy-target="prompt-l1">⧉</button></div>
+                      <textarea id="prompt-l1" class="sr-only" aria-hidden="true" readonly>회사 생존 유형 테스트 페이지를 예쁘게 만들어줘.
+
+맨 위에는 제목이 크게 보이고, 바로 아래에 이 테스트가 어떤 건지 한두 줄짜리 짧은 소개가 있었으면 좋겠어.
+그 아래에 "테스트 시작" 버튼을 크고 눈에 띄게 넣어줘.
+
+아직 질문 기능은 넣지 말고, 어떤 결과 유형이 나오는지 미리 보여주는 소개 카드 4개를 가로로 깔끔하게 보여줘.
+유형은 아래 4가지야.
+- 조용한 생존러
+- 눈치 만렙 조율러
+- 일머리 직진러
+- 아이디어 생존러
+각 카드에는 유형 이름이랑 한 줄 소개만 가볍게 들어가면 돼.
+
+분위기는 요즘 밈 테스트 앱처럼 세련되고 가볍게 해줘.
+배경은 흰색, 포인트는 네이비(#002C5F), 보조색은 바이올렛(#7C63D7) 정도로 쓰면 좋겠어.
+모바일에서도 예쁘게 보이게 해줘.</textarea>
+                    </div>
+                    <div class="prompt-box">
+                      <strong>✨ 기대 결과 / 다음 요청</strong>
+                      <div class="muted-text">테스트를 시작하기 전의 감성적인 소개 화면이 완성됨. 어떤 유형들이 있는지만 살짝 맛보는 단계.<br><br>👉 다음: "이제 시작 버튼을 누르면 실제 질문이 넘어가고 결과가 나오게 해보자."</div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+
+              <!-- LEVEL 2 -->
+              <article class="step-card">
+                <div class="step-no"><span>LEVEL</span><strong>2</strong></div>
+                <div class="step-body">
+                  <h4>질문에 답하면 결과가 나오는 테스트 만들기</h4>
+                  <div class="prompt-grid">
+                    <div class="prompt-box">
+                      <strong>🎯 목표</strong>
+                      <div class="muted-text">시작 버튼 → 질문 한 개씩 → 보기 선택 → 다음 질문 → 마지막에 4개 유형 중 하나 결과 → 다시 해보기까지 되는 실제 인터랙티브 테스트.</div>
+                    </div>
+                    <div class="prompt-box">
+                      <strong>💬 입력 프롬프트</strong>
+                      <div class="prompt-text">방금 만든 소개 페이지에 실제 테스트 기능을 붙여줘.
+
+시작 버튼을 누르면 질문 화면으로 넘어가고, 질문은 한 번에 하나씩만 보이게 해줘.
+답을 고르면 자동으로 다음 질문으로 넘어가고, 마지막 질문이 끝나면 결과 화면이 나와야 해.
+
+질문은 회사에서 일할 때 내 스타일을 알아보는 느낌으로 5개 정도 만들어줘. 예를 들면 이런 주제들이야.
+- 회의에서 나는 어떤 편인지
+- 급한 일이 생겼을 때 어떻게 움직이는지
+- 보고할 때 나는 어떤 스타일인지
+- 협업할 때 내 역할은 무엇인지
+- 퇴근 직전 나는 어떤 모드인지
+질문마다 보기는 4개씩 넣어주고, 보기를 고른 값에 따라 결과 유형이 정해지면 돼.
+
+결과는 조용한 생존러, 눈치 만렙 조율러, 일머리 직진러, 아이디어 생존러 중 하나가 나오게 해줘.
+결과 화면에는 내 유형 이름이 크게 보이고, 짧은 한 줄 설명이랑 특징 3가지 정도를 재밌게 적어줘.
+그 아래에 "다시 해보기" 버튼도 넣어줘.
+
+전체 분위기는 Level 1에서 만든 디자인 톤(흰 배경 + 네이비 + 바이올렛)을 그대로 유지해줘.<button class="copy-btn" data-copy-target="prompt-l2">⧉</button></div>
+                      <textarea id="prompt-l2" class="sr-only" aria-hidden="true" readonly>방금 만든 소개 페이지에 실제 테스트 기능을 붙여줘.
+
+시작 버튼을 누르면 질문 화면으로 넘어가고, 질문은 한 번에 하나씩만 보이게 해줘.
+답을 고르면 자동으로 다음 질문으로 넘어가고, 마지막 질문이 끝나면 결과 화면이 나와야 해.
+
+질문은 회사에서 일할 때 내 스타일을 알아보는 느낌으로 5개 정도 만들어줘. 예를 들면 이런 주제들이야.
+- 회의에서 나는 어떤 편인지
+- 급한 일이 생겼을 때 어떻게 움직이는지
+- 보고할 때 나는 어떤 스타일인지
+- 협업할 때 내 역할은 무엇인지
+- 퇴근 직전 나는 어떤 모드인지
+질문마다 보기는 4개씩 넣어주고, 보기를 고른 값에 따라 결과 유형이 정해지면 돼.
+
+결과는 조용한 생존러, 눈치 만렙 조율러, 일머리 직진러, 아이디어 생존러 중 하나가 나오게 해줘.
+결과 화면에는 내 유형 이름이 크게 보이고, 짧은 한 줄 설명이랑 특징 3가지 정도를 재밌게 적어줘.
+그 아래에 "다시 해보기" 버튼도 넣어줘.
+
+전체 분위기는 Level 1에서 만든 디자인 톤(흰 배경 + 네이비 + 바이올렛)을 그대로 유지해줘.</textarea>
+                    </div>
+                    <div class="prompt-box">
+                      <strong>✨ 기대 결과 / 다음 요청</strong>
+                      <div class="muted-text">소개만 보여주던 정적 페이지가 진짜 테스트 앱으로 진화. 직접 답하면 내 유형이 나오고 다시 해볼 수도 있게 됨.<br><br>👉 다음 (심화): "이제 이 테스트를 더 트렌디하게 다듬고 결과 화면 완성도를 높여보자."</div>
+                    </div>
+                  </div>
+                </div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <!-- 추가 작업 (Level 3) — 트렌디한 다듬기 + 공유 요소 -->
+        <div class="bonus-shell">
+          <div class="bonus-head">
+            <span class="bonus-tag">추가 작업 · Level 3 심화</span>
+            <h3>결과 화면을 밈 테스트처럼 다듬고 공유 요소 넣기</h3>
+            <p>기능을 복잡하게 늘리지 말고, 완성된 테스트를 "공유하고 싶을 정도로 예쁘게" 다듬는 단계예요. 아래 프롬프트를 순서대로 하나씩 적용하면 됩니다. 3번은 선택이에요.</p>
+          </div>
+
+          <div class="bonus-steps">
+            <div class="bonus-step">
+              <span class="bonus-num">1</span>
+              <div class="bonus-step-body">
+                <strong>유형별 개성 살리기</strong>
+                <p>네 가지 유형이 서로 분위기가 달라 보이도록 결과 화면에 색과 아이콘 포인트를 다르게 적용합니다.</p>
+                <div class="prompt-text">결과 화면에 유형별 개성을 좀 더 살려줘.
+
+네 가지 유형(조용한 생존러, 눈치 만렙 조율러, 일머리 직진러, 아이디어 생존러)이 서로 분위기가 달라 보이도록, 유형마다 대표 색상이랑 대표 아이콘(또는 이모지)을 조금씩 다르게 정해줘.
+결과 카드 배경이나 포인트 색도 내가 나온 유형에 따라 자연스럽게 바뀌게 해줘.
+
+기능은 건드리지 말고, 비주얼만 유형별로 개성 있게 다듬어줘.
+Level 1·2에서 만든 디자인 톤은 그대로 유지해줘.<button class="copy-btn" data-copy-target="prompt-l3-1">⧉</button></div>
+                <textarea id="prompt-l3-1" class="sr-only" aria-hidden="true" readonly>결과 화면에 유형별 개성을 좀 더 살려줘.
+
+네 가지 유형(조용한 생존러, 눈치 만렙 조율러, 일머리 직진러, 아이디어 생존러)이 서로 분위기가 달라 보이도록, 유형마다 대표 색상이랑 대표 아이콘(또는 이모지)을 조금씩 다르게 정해줘.
+결과 카드 배경이나 포인트 색도 내가 나온 유형에 따라 자연스럽게 바뀌게 해줘.
+
+기능은 건드리지 말고, 비주얼만 유형별로 개성 있게 다듬어줘.
+Level 1·2에서 만든 디자인 톤은 그대로 유지해줘.</textarea>
+              </div>
+            </div>
+
+            <div class="bonus-step">
+              <span class="bonus-num">2</span>
+              <div class="bonus-step-body">
+                <strong>공유하고 싶은 결과 카드 + 버튼 추가</strong>
+                <p>결과 카드를 캡처해서 친구한테 보내고 싶을 정도로 다듬고, "다시 테스트하기" · "결과 문구 복사하기" 버튼을 붙입니다.</p>
+                <div class="prompt-text">결과 화면을 공유하고 싶을 정도로 밈스럽고 귀엽게 다듬어줘.
+결과 카드는 캡처해서 친구한테 보내고 싶을 만큼 깔끔하고 감각적으로 만들어줘.
+
+그리고 결과 카드 아래에 버튼 2개를 넣어줘.
+- "다시 테스트하기" — 처음 소개 화면으로 돌아가거나 질문부터 다시 시작
+- "결과 문구 복사하기" — 내 유형명이랑 설명이 클립보드에 복사되게
+
+기능은 그대로 두고, 결과 화면만 더 밈 테스트답게 감성을 끌어올려줘.
+모바일에서도 예쁘게 보여야 해.<button class="copy-btn" data-copy-target="prompt-l3-2">⧉</button></div>
+                <textarea id="prompt-l3-2" class="sr-only" aria-hidden="true" readonly>결과 화면을 공유하고 싶을 정도로 밈스럽고 귀엽게 다듬어줘.
+결과 카드는 캡처해서 친구한테 보내고 싶을 만큼 깔끔하고 감각적으로 만들어줘.
+
+그리고 결과 카드 아래에 버튼 2개를 넣어줘.
+- "다시 테스트하기" — 처음 소개 화면으로 돌아가거나 질문부터 다시 시작
+- "결과 문구 복사하기" — 내 유형명이랑 설명이 클립보드에 복사되게
+
+기능은 그대로 두고, 결과 화면만 더 밈 테스트답게 감성을 끌어올려줘.
+모바일에서도 예쁘게 보여야 해.</textarea>
+              </div>
+            </div>
+
+            <div class="bonus-step">
+              <span class="bonus-num">3</span>
+              <div class="bonus-step-body">
+                <strong>(선택) 전체 디자인 수준 한 단계 끌어올리기</strong>
+                <p>기능은 건드리지 않고, 폰트 위계·여백·색감·그림자 같은 디테일만 손봐서 "요즘 잘 만든 서비스" 느낌으로 마무리합니다.</p>
+                <div class="prompt-text">지금 만든 회사 생존 유형 테스트를 전반적으로 더 고급스럽고 트렌디한 비주얼로 다듬어줘.
+
+폰트 위계, 여백 간격, 색감 조화, 카드 모서리, 버튼 모양, 그림자 깊이까지
+요즘 잘 디자인된 웹 서비스 느낌이 나게 디테일을 전반적으로 올려줘.
+
+기능은 건드리지 말고, 보이는 수준만 한 단계 위로 끌어올리는 느낌으로 해줘.
+모바일에서 봤을 때도 여백과 정렬이 예쁘게 잡혀 있어야 해.<button class="copy-btn" data-copy-target="prompt-l3-3">⧉</button></div>
+                <textarea id="prompt-l3-3" class="sr-only" aria-hidden="true" readonly>지금 만든 회사 생존 유형 테스트를 전반적으로 더 고급스럽고 트렌디한 비주얼로 다듬어줘.
+
+폰트 위계, 여백 간격, 색감 조화, 카드 모서리, 버튼 모양, 그림자 깊이까지
+요즘 잘 디자인된 웹 서비스 느낌이 나게 디테일을 전반적으로 올려줘.
+
+기능은 건드리지 말고, 보이는 수준만 한 단계 위로 끌어올리는 느낌으로 해줘.
+모바일에서 봤을 때도 여백과 정렬이 예쁘게 잡혀 있어야 해.</textarea>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- CLOSING -->
+    <section class="section" id="closing">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">마무리</span>
+          <h2>코딩을 잘하는 시대에서,<br>문제를 잘 정의하는 시대로.</h2>
+          <p>완벽한 코드는 AI의 몫, 완벽한 질문은 우리의 몫입니다.</p>
+        </div>
+        <div class="closing-grid">
+          <article class="card closing-card">
+            <span class="icon">①</span>
+            <h4>작게 시작하세요</h4>
+            <p>처음부터 거창한 걸 만들려 하지 말고, 엑셀로 하던 반복 업무 하나를 바꿔보는 것부터 시작하세요.</p>
+          </article>
+          <article class="card closing-card">
+            <span class="icon">②</span>
+            <h4>두려워하지 마세요</h4>
+            <p>망가지면 "방금 넣은 부분 때문에 버튼이 안 돼. 고쳐줘"라고 AI에게 말하면 그만입니다.</p>
+          </article>
+          <article class="card closing-card">
+            <span class="icon">③</span>
+            <h4>공유하고 확산하세요</h4>
+            <p>작은 툴을 동료에게 공유해보세요. "이거 어떻게 만들었어?"가 변화의 시작입니다.</p>
+          </article>
+        </div>
+        <div style="text-align: center;">
+          <a href="#top" class="btn btn-primary">처음으로 돌아가기</a>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer class="site-footer">
+    <div class="container">
+      <strong>비개발자를 위한 바이브코딩 실습</strong>
+      <span>본 페이지의 링크를 저장해두시면, 웹/모바일 언제 어디서든 반복해서 학습 가능합니다.</span>
+    </div>
+  </footer>
+
+  <style>
+    .sr-only {
+      position: absolute !important;
+      width: 1px; height: 1px;
+      padding: 0; margin: -1px;
+      overflow: hidden;
+      clip: rect(0, 0, 0, 0);
+      white-space: nowrap;
+      border: 0;
+    }
+  </style>
+
+  <script>
+    // 1) 탭 전환
+    const tabs = document.querySelectorAll('.lab-tab');
+    const panels = document.querySelectorAll('.lab-panel');
+    tabs.forEach(tab => {
+      tab.addEventListener('click', () => {
+        const target = tab.dataset.target;
+        tabs.forEach(t => {
+          t.classList.remove('active');
+          t.setAttribute('aria-selected', 'false');
+        });
+        panels.forEach(p => p.classList.remove('active'));
+        tab.classList.add('active');
+        tab.setAttribute('aria-selected', 'true');
+        document.getElementById(target).classList.add('active');
+      });
+    });
+
+    // 2) 복사 버튼
+    document.querySelectorAll('.copy-btn').forEach(btn => {
+      btn.addEventListener('click', async (e) => {
+        e.preventDefault();
+        e.stopPropagation();
+        const targetId = btn.dataset.copyTarget;
+        const el = document.getElementById(targetId);
+        if (!el) return;
+        const text = el.value || el.textContent || '';
+        try {
+          await navigator.clipboard.writeText(text.trim());
+          const original = btn.textContent;
+          btn.textContent = '✓';
+          btn.classList.add('copied');
+          setTimeout(() => {
+            btn.textContent = original;
+            btn.classList.remove('copied');
+          }, 1400);
+        } catch {
+          el.select && el.select();
+          document.execCommand && document.execCommand('copy');
+          btn.textContent = '✓';
+          btn.classList.add('copied');
+          setTimeout(() => {
+            btn.textContent = '⧉';
+            btn.classList.remove('copied');
+          }, 1400);
+        }
+      });
+    });
+
+    // 3) 섹션별 내비게이션 활성화 (3개 그룹 기준)
+    const navLinks = document.querySelectorAll('#sectionNav a');
+    const sections = Array.from(document.querySelectorAll('main section[id]'));
+    const sectionToNav = {};
+    navLinks.forEach(link => {
+      (link.dataset.sections || '').split(',').forEach(id => {
+        const key = id.trim();
+        if (key) sectionToNav[key] = link;
+      });
+    });
+    const activateNav = () => {
+      const scrollPoint = window.scrollY + 120;
+      let currentId = sections[0]?.id || 'top';
+      sections.forEach(section => {
+        if (scrollPoint >= section.offsetTop) currentId = section.id;
+      });
+      const activeLink = sectionToNav[currentId] || sectionToNav['top'];
+      navLinks.forEach(link => link.classList.toggle('active', link === activeLink));
+    };
+    activateNav();
+    window.addEventListener('scroll', activateNav, { passive: true });
+
+    // 4) 프롬프트 박스 접기/펼치기
+    const COLLAPSED_MAX = 108;
+    const initPromptCollapse = () => {
+      document.querySelectorAll('.prompt-text').forEach(el => {
+        if (el.dataset.collapseInit === '1') return;
+        el.dataset.collapseInit = '1';
+        if (el.scrollHeight > COLLAPSED_MAX + 8) {
+          el.classList.add('is-collapsible');
+        }
+        el.addEventListener('click', (e) => {
+          if (!el.classList.contains('is-collapsible')) return;
+          if (e.target.closest('.copy-btn')) return;
+          const sel = window.getSelection && window.getSelection().toString();
+          if (sel && sel.length > 0) return;
+          el.classList.toggle('is-expanded');
+        });
+      });
+    };
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initPromptCollapse);
+    } else {
+      initPromptCollapse();
+    }
+  </script>
+
+</body>
+</html>
