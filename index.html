@@ -1050,6 +1050,63 @@
       margin: 0 2px;
     }
 
+    .preview-fallback {
+      margin-bottom: 24px;
+      padding: 22px 24px;
+      border-radius: var(--radius-md);
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+    }
+    .preview-fallback strong {
+      display: block;
+      font-size: 16px;
+      font-weight: 900;
+      color: var(--navy);
+      margin-bottom: 8px;
+      letter-spacing: -0.01em;
+    }
+    .preview-fallback p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.65;
+      margin: 0 0 12px;
+    }
+    .preview-fallback ol {
+      list-style: decimal;
+      padding-left: 20px;
+      display: grid;
+      gap: 8px;
+      margin: 0;
+    }
+    .preview-fallback li {
+      font-size: 14px;
+      color: var(--text);
+      line-height: 1.6;
+      padding-left: 2px;
+    }
+    .preview-fallback code {
+      display: inline-block;
+      padding: 1px 6px;
+      border-radius: 6px;
+      background: var(--surface);
+      border: 1px solid var(--line-soft);
+      color: var(--navy);
+      font-family: inherit;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .preview-fallback .tip {
+      margin-top: 12px;
+      padding: 12px 14px;
+      border-radius: var(--radius-sm);
+      background: rgba(0, 44, 95, 0.04);
+      border: 1px dashed var(--line);
+      color: var(--muted);
+      font-size: 13.5px;
+      line-height: 1.6;
+    }
+
     /* 추가 작업 (Level 3 심화) */
     .bonus-shell {
       margin-top: 28px;
@@ -1950,6 +2007,21 @@
             <strong>프롬프트 입력 전, Copilot 도구에서 <kbd>Pages</kbd>를 먼저 설정해주세요 (프롬프트 입력창 왼쪽 아래 '+' 클릭 후 '더보기 > 페이지' 클릭)</strong>
             <p>Copilot 입력창에서 바로 프롬프트를 넣기 전에 도구 메뉴에서 <kbd>Pages</kbd>를 선택하면 결과 화면을 더 쉽게 확인하고 다듬을 수 있습니다.<br>결과를 보다가 제목, 버튼명, 설명 문구처럼 간단한 텍스트만 고치고 싶을 때는 <kbd>Pages</kbd>의 코드 화면에서 해당 문구를 찾아 직접 수정해도 됩니다.</p>
           </div>
+        </div>
+
+        <div class="preview-fallback" role="note" aria-label="Copilot Pages 미리보기 비활성화 시 확인 방법">
+          <strong>미리보기가 켜지지 않는 경우, HTML 파일로 저장해서 확인하면 됩니다.</strong>
+          <p>회사 보안 정책이나 Copilot Pages 설정에 따라 코드 미리보기가 활성화되지 않을 수 있습니다. 이때는 생성된 코드를 HTML 파일로 저장해 브라우저에서 직접 열어보면 됩니다.</p>
+          <ol>
+            <li>Copilot Pages 오른쪽 코드 화면에서 전체 HTML 코드를 선택합니다. <code>Ctrl + A</code>를 누른 뒤 <code>Ctrl + C</code>로 복사합니다.</li>
+            <li>Windows 검색창에서 <code>메모장</code>을 검색해 실행합니다.</li>
+            <li>빈 메모장 화면에 복사한 코드를 <code>Ctrl + V</code>로 붙여 넣습니다.</li>
+            <li>상단 메뉴에서 <code>파일</code> → <code>다른 이름으로 저장</code>을 선택합니다.</li>
+            <li>파일 이름은 예를 들어 <code>company-survival-test.html</code>처럼 마지막 확장자를 반드시 <code>.html</code>로 입력합니다.</li>
+            <li><code>파일 형식</code>은 <code>모든 파일(*.*)</code>로 변경하고, <code>인코딩</code>은 <code>UTF-8</code>로 선택한 뒤 저장합니다.</li>
+            <li>저장된 HTML 파일을 더블클릭하면 Edge 또는 Chrome 브라우저에서 결과 화면을 확인할 수 있습니다.</li>
+          </ol>
+          <div class="tip">주의: 파일 형식을 “텍스트 문서”로 두면 <code>.html.txt</code>로 저장될 수 있습니다. 파일명이 <code>.html</code>로 끝나는지 꼭 확인해주세요.</div>
         </div>
 
         <div class="lab-shell">
