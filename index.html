@@ -1,13 +1,14 @@
 <!DOCTYPE html>
+
 <html lang="ko">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>비개발자를 위한 바이브코딩 실습</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&display=swap" rel="stylesheet">
-  <style>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>비개발자를 위한 바이브코딩 실습</title>
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@300;400;500;700;900&amp;display=swap" rel="stylesheet"/>
+<style>
     :root {
       --navy: #002C5F;
       --navy-2: #003673;
@@ -999,7 +1000,7 @@
     }
     .tools-note strong { color: var(--navy); }
 
-    /* 실습 전 Canvas 안내 */
+    /* 실습 전 안내 */
     .canvas-notice {
       display: flex;
       align-items: flex-start;
@@ -1570,488 +1571,467 @@
   </style>
 </head>
 <body>
-
-  <header class="site-header">
-    <div class="container nav-wrap">
-      <a href="#top" class="brand" aria-label="워크이노베이션센터 AI디자인랩 · 바이브코딩 실습">
-        <img src="https://raw.githubusercontent.com/SinaBroMan/aidesignlab_logo/main/AI%EB%94%94%EC%9E%90%EC%9D%B8%EB%9E%A9_mark.png" alt="AI디자인랩 로고" class="brand-logo" width="34" height="34" decoding="async" referrerpolicy="no-referrer" />
-        <span class="brand-text">
-          <small>워크이노베이션센터</small>
-          <strong>AI디자인랩</strong>
-        </span>
-        <span class="brand-divider" aria-hidden="true"></span>
-        <span class="brand-page">바이브코딩 실습</span>
-      </a>
-      <nav class="nav-links" id="sectionNav" aria-label="섹션 내비게이션">
-        <a href="#top" data-sections="top,intro">소개</a>
-        <a href="#vibe" data-sections="vibe,code,framework,work-use,levels,tools,habits">핵심 개념</a>
-        <a href="#practice" data-sections="practice,closing">실습하기</a>
-      </nav>
-    </div>
-  </header>
-
-  <main id="top">
-
-    <!-- HERO -->
-    <section class="hero">
-      <div class="container">
-        <span class="hero-badge">비개발자를 위한 실습형 입문</span>
-        <h1>말로 설명하면, AI가 만든다.<br><span class="accent">바이브코딩</span> 시작하기</h1>
-        <p class="hero-sub">
+<header class="site-header">
+<div class="container nav-wrap">
+<a aria-label="워크이노베이션센터 AI디자인랩 · 바이브코딩 실습" class="brand" href="#top">
+<img alt="AI디자인랩 로고" class="brand-logo" decoding="async" height="34" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/SinaBroMan/aidesignlab_logo/main/AI%EB%94%94%EC%9E%90%EC%9D%B8%EB%9E%A9_mark.png" width="34"/>
+<span class="brand-text">
+<small>워크이노베이션센터</small>
+<strong>AI디자인랩</strong>
+</span>
+<span aria-hidden="true" class="brand-divider"></span>
+<span class="brand-page">바이브코딩 실습</span>
+</a>
+<nav aria-label="섹션 내비게이션" class="nav-links" id="sectionNav">
+<a data-sections="top,intro" href="#top">소개</a>
+<a data-sections="vibe,code,framework,work-use,levels,tools,habits" href="#vibe">핵심 개념</a>
+<a data-sections="practice,closing" href="#practice">실습하기</a>
+</nav>
+</div>
+</header>
+<main id="top">
+<!-- HERO -->
+<section class="hero">
+<div class="container">
+<span class="hero-badge">비개발자를 위한 실습형 입문</span>
+<h1>말로 설명하면, AI가 만든다.<br/><span class="accent">바이브코딩</span> 시작하기</h1>
+<p class="hero-sub">
           개발자가 아니어도 괜찮습니다. 내 아이디어를 AI에게 설명하고 다듬어가며, 웹페이지와 앱을 직접 만들어봅니다.
         </p>
-        <div class="hero-actions">
-          <a href="#vibe" class="btn btn-primary">개념부터 보기</a>
-          <a href="#practice" class="btn btn-secondary">실습 바로 시작</a>
-        </div>
-        <div class="hero-meta">
-          <div class="meta-card">
-            <span class="step-dot">01</span>
-            <strong>개념 이해와 실습으로 구성</strong>
-            <span>바이브코딩이 무엇인지 짧게 이해하고, 간단한 웹페이지를 직접 만들어봅니다.</span>
-          </div>
-          <div class="meta-card">
-            <span class="step-dot">02</span>
-            <strong>순차적으로 아래로 스크롤</strong>
-            <span>이 페이지의 내용을 순서대로 스크롤하며, 확인하고 따라해보세요.</span>
-          </div>
-          <div class="meta-card">
-            <span class="step-dot">03</span>
-            <strong>시작은 이렇게</strong>
-            <span>처음부터 완벽하지 않아도 됩니다. 작게 만든 뒤 AI에게 계속 수정 요청하세요.</span>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- OPENING -->
-    <section class="section" id="intro">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">오프닝</span>
-          <h2>개발자만의 영역이었던 일,<br>이제 비개발자도 시작할 수 있습니다.</h2>
-          <p>중요한 것은 복잡한 코딩 능력과 기술이 아니라, 무엇을 만들지 분명히 설명하는 힘입니다.</p>
-        </div>
-        <div class="grid grid-2">
-          <article class="card compare-card before">
-            <span class="tag">과거 (Before)</span>
-            <h3>개발자만 가능했던 일</h3>
-            <p>코드 문법을 외우고, 오류를 고치고, 여러 파일을 연결해야 했습니다. 아이디어를 화면으로 옮기는 장벽이 매우 높았습니다.</p>
-          </article>
-          <article class="card compare-card now">
-            <span class="tag">현재 (Now)</span>
-            <h3>비개발자도 가능한 일</h3>
-            <p>AI가 코드 초안을 빠르게 만들어 줍니다. 우리는 "무엇을 왜 만들지"만 명확히 설명하면 됩니다.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- VIBE CODING -->
-    <section class="section alt" id="vibe">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">바이브코딩이란?</span>
-          <h2>말 한 번으로 끝나는 마법이 아니라,<br>설명하고 확인하고 다듬는 작업입니다.</h2>
-          <p>좋은 결과는 좋은 설명에서 시작해, 몇 번의 수정 요청을 통해 완성됩니다.</p>
-        </div>
-        <div class="flow" aria-label="바이브코딩 4단계">
-          <div class="flow-step">
-            <div class="num">1</div>
-            <h3>설명</h3>
-            <p>누가, 왜, 어떤 화면이 필요한지 사람의 언어로 전합니다.</p>
-          </div>
-          <div class="flow-step">
-            <div class="num">2</div>
-            <h3>생성</h3>
-            <p>AI가 HTML·CSS·JS 초안을 빠르게 만들어냅니다.</p>
-          </div>
-          <div class="flow-step">
-            <div class="num">3</div>
-            <h3>확인</h3>
-            <p>결과물을 실제로 보며 의도와 맞는지 체크합니다.</p>
-          </div>
-          <div class="flow-step">
-            <div class="num">4</div>
-            <h3>수정</h3>
-            <p>아쉬운 점을 구체적으로 다시 요청하며 완성도를 올립니다.</p>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CODE BASICS -->
-    <section class="section" id="code">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">코드가 뭔데?</span>
-          <h2>웹페이지 or 앱은 결국<br>구조·꾸밈·동작의 조합입니다.</h2>
-          <p>건축에 비유하면 아주 쉽습니다. 처음에는 이 세 가지만 기억해도 충분합니다.</p>
-        </div>
-        <div class="grid grid-3">
-          <article class="code-card c1">
-            <div class="label">구조</div>
-            <h3>HTML</h3>
-            <div class="meta">🏗️ 건물의 뼈대</div>
-            <p>제목, 버튼, 카드 같은 화면의 기본 구성 요소를 배치합니다.</p>
-          </article>
-          <article class="code-card c2">
-            <div class="label">꾸밈</div>
-            <h3>CSS</h3>
-            <div class="meta">🎨 건물의 인테리어</div>
-            <p>색상, 여백, 글자 크기 등 보기 좋게 만드는 디자인을 담당합니다.</p>
-          </article>
-          <article class="code-card c3">
-            <div class="label">동작</div>
-            <h3>JavaScript</h3>
-            <div class="meta">⚙️ 전기와 수도 시설</div>
-            <p>버튼을 누르면 반응하고, 데이터가 바뀌는 "기능"을 만들어줍니다.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- WHY WHAT HOW -->
-    <section class="section alt" id="framework">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">핵심 구조</span>
-          <h2>사람은 WHY·WHAT에 집중,<br>HOW는 AI가 맡습니다.</h2>
-          <p>코드를 아는 능력보다 문제와 니즈를 정의하는 능력이 더 중요해진 이유입니다.</p>
-        </div>
-        <div class="wwh">
-          <div class="wwh-side wwh-human">
-            <span class="role">사람의 역할</span>
-            <div class="wwh-block">
-              <h3>WHY <span>왜 만드는가</span></h3>
-              <p>누구에게 어떤 가치를 줄지, 어떤 문제를 풀지 정하는 영역입니다.</p>
-            </div>
-            <div class="wwh-block">
-              <h3>WHAT <span>무엇을 만드는가</span></h3>
-              <p>어떤 화면·기능·순서가 필요한지 구체화하는 영역입니다.</p>
-            </div>
-          </div>
-          <div class="wwh-side wwh-ai">
-            <span class="role">AI의 역할</span>
-            <div class="wwh-block">
-              <h3>HOW <span>어떻게 구현할까</span></h3>
-              <p>HTML, CSS, JavaScript, 인터랙션 구현을 AI가 빠르게 도와줍니다.</p>
-            </div>
-          </div>
-        </div>
-        <div class="wwh-summary">
+<div class="hero-actions">
+<a class="btn btn-primary" href="#vibe">개념부터 보기</a>
+<a class="btn btn-secondary" href="#practice">실습 바로 시작</a>
+</div>
+<div class="hero-meta">
+<div class="meta-card">
+<span class="step-dot">01</span>
+<strong>개념 이해와 실습으로 구성</strong>
+<span>바이브코딩이 무엇인지 짧게 이해하고, 간단한 웹페이지를 직접 만들어봅니다.</span>
+</div>
+<div class="meta-card">
+<span class="step-dot">02</span>
+<strong>순차적으로 아래로 스크롤</strong>
+<span>이 페이지의 내용을 순서대로 스크롤하며, 확인하고 따라해보세요.</span>
+</div>
+<div class="meta-card">
+<span class="step-dot">03</span>
+<strong>시작은 이렇게</strong>
+<span>처음부터 완벽하지 않아도 됩니다. 작게 만든 뒤 AI에게 계속 수정 요청하세요.</span>
+</div>
+</div>
+</div>
+</section>
+<!-- OPENING -->
+<section class="section" id="intro">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">오프닝</span>
+<h2>개발자만의 영역이었던 일,<br/>이제 비개발자도 시작할 수 있습니다.</h2>
+<p>중요한 것은 복잡한 코딩 능력과 기술이 아니라, 무엇을 만들지 분명히 설명하는 힘입니다.</p>
+</div>
+<div class="grid grid-2">
+<article class="card compare-card before">
+<span class="tag">과거 (Before)</span>
+<h3>개발자만 가능했던 일</h3>
+<p>코드 문법을 외우고, 오류를 고치고, 여러 파일을 연결해야 했습니다. 아이디어를 화면으로 옮기는 장벽이 매우 높았습니다.</p>
+</article>
+<article class="card compare-card now">
+<span class="tag">현재 (Now)</span>
+<h3>비개발자도 가능한 일</h3>
+<p>AI가 코드 초안을 빠르게 만들어 줍니다. 우리는 "무엇을 왜 만들지"만 명확히 설명하면 됩니다.</p>
+</article>
+</div>
+</div>
+</section>
+<!-- VIBE CODING -->
+<section class="section alt" id="vibe">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">바이브코딩이란?</span>
+<h2>말 한 번으로 끝나는 마법이 아니라,<br/>설명하고 확인하고 다듬는 작업입니다.</h2>
+<p>좋은 결과는 좋은 설명에서 시작해, 몇 번의 수정 요청을 통해 완성됩니다.</p>
+</div>
+<div aria-label="바이브코딩 4단계" class="flow">
+<div class="flow-step">
+<div class="num">1</div>
+<h3>설명</h3>
+<p>누가, 왜, 어떤 화면이 필요한지 사람의 언어로 전합니다.</p>
+</div>
+<div class="flow-step">
+<div class="num">2</div>
+<h3>생성</h3>
+<p>AI가 HTML·CSS·JS 초안을 빠르게 만들어냅니다.</p>
+</div>
+<div class="flow-step">
+<div class="num">3</div>
+<h3>확인</h3>
+<p>결과물을 실제로 보며 의도와 맞는지 체크합니다.</p>
+</div>
+<div class="flow-step">
+<div class="num">4</div>
+<h3>수정</h3>
+<p>아쉬운 점을 구체적으로 다시 요청하며 완성도를 올립니다.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- CODE BASICS -->
+<section class="section" id="code">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">코드가 뭔데?</span>
+<h2>웹페이지 or 앱은 결국<br/>구조·꾸밈·동작의 조합입니다.</h2>
+<p>건축에 비유하면 아주 쉽습니다. 처음에는 이 세 가지만 기억해도 충분합니다.</p>
+</div>
+<div class="grid grid-3">
+<article class="code-card c1">
+<div class="label">구조</div>
+<h3>HTML</h3>
+<div class="meta">🏗️ 건물의 뼈대</div>
+<p>제목, 버튼, 카드 같은 화면의 기본 구성 요소를 배치합니다.</p>
+</article>
+<article class="code-card c2">
+<div class="label">꾸밈</div>
+<h3>CSS</h3>
+<div class="meta">🎨 건물의 인테리어</div>
+<p>색상, 여백, 글자 크기 등 보기 좋게 만드는 디자인을 담당합니다.</p>
+</article>
+<article class="code-card c3">
+<div class="label">동작</div>
+<h3>JavaScript</h3>
+<div class="meta">⚙️ 전기와 수도 시설</div>
+<p>버튼을 누르면 반응하고, 데이터가 바뀌는 "기능"을 만들어줍니다.</p>
+</article>
+</div>
+</div>
+</section>
+<!-- WHY WHAT HOW -->
+<section class="section alt" id="framework">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">핵심 구조</span>
+<h2>사람은 WHY·WHAT에 집중,<br/>HOW는 AI가 맡습니다.</h2>
+<p>코드를 아는 능력보다 문제와 니즈를 정의하는 능력이 더 중요해진 이유입니다.</p>
+</div>
+<div class="wwh">
+<div class="wwh-side wwh-human">
+<span class="role">사람의 역할</span>
+<div class="wwh-block">
+<h3>WHY <span>왜 만드는가</span></h3>
+<p>누구에게 어떤 가치를 줄지, 어떤 문제를 풀지 정하는 영역입니다.</p>
+</div>
+<div class="wwh-block">
+<h3>WHAT <span>무엇을 만드는가</span></h3>
+<p>어떤 화면·기능·순서가 필요한지 구체화하는 영역입니다.</p>
+</div>
+</div>
+<div class="wwh-side wwh-ai">
+<span class="role">AI의 역할</span>
+<div class="wwh-block">
+<h3>HOW <span>어떻게 구현할까</span></h3>
+<p>HTML, CSS, JavaScript, 인터랙션 구현을 AI가 빠르게 도와줍니다.</p>
+</div>
+</div>
+</div>
+<div class="wwh-summary">
           구체적으로 말해주지 않아도 AI가 어느정도는 알아서 만들어 줍니다. 그러나, 사람의 상상력과 기획력에 따라 결과는 확연히 달라집니다.
         </div>
-      </div>
-    </section>
-
-
-    <!-- WORK USE CASES -->
-    <section class="section" id="work-use">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">업무 활용 사례</span>
-          <h2>웹페이지/앱으로<br>업무에서 무엇을 할 수 있을까?</h2>
-          <p>핵심은 거창한 시스템 개발이 아니라, 반복 설명·입력·정리·공유가 필요한 일을 작은 화면으로 바꾸는 것입니다.</p>
-        </div>
-
-        <div class="work-use-shell">
-          <aside class="work-use-lead">
-            <span class="kicker">업무 적용 관점</span>
-            <h3>문서 하나를<br>“눌러보고 쓰는 화면”으로 바꿉니다.</h3>
-            <p>공지문, 엑셀 체크리스트, 회의 메모, 보고서 초안처럼 정적인 자료를 사용자가 바로 이해하고 입력하고 확인할 수 있는 웹페이지나 간단한 앱으로 전환할 수 있습니다.</p>
-          </aside>
-
-          <div class="work-use-list" aria-label="업무 활용 예시">
-            <article class="work-card">
-              <div class="tag-row"><span class="work-tag">Level 1</span><span class="work-emoji" aria-hidden="true">📌</span></div>
-              <h4>공지·가이드 페이지</h4>
-              <p>긴 안내문을 카드형 구조로 바꿔 핵심만 빠르게 보게 합니다.</p>
-              <span class="example"><strong>예시</strong> AI 사용 가이드, 교육 안내, 행사 신청 방법, 신규 제도 안내 페이지</span>
-            </article>
-
-            <article class="work-card">
-              <div class="tag-row"><span class="work-tag">Level 2</span><span class="work-emoji" aria-hidden="true">🧮</span></div>
-              <h4>간단 계산기·판정 도구</h4>
-              <p>사용자가 값을 넣으면 결과와 판단 기준을 즉시 보여줍니다.</p>
-              <span class="example"><strong>예시</strong> 품질 이슈 중대성 판정, 교육 대상 우선순위 계산, 비용·일정 간이 산정</span>
-            </article>
-
-            <article class="work-card">
-              <div class="tag-row"><span class="work-tag">Level 2</span><span class="work-emoji" aria-hidden="true">📝</span></div>
-              <h4>입력폼·체크리스트</h4>
-              <p>받아야 할 정보를 빠짐없이 입력하게 하고, 누락을 줄입니다.</p>
-              <span class="example"><strong>예시</strong> 회의 안건 수집, 현장 점검 체크리스트, AI Needs 접수 화면</span>
-            </article>
-
-            <article class="work-card">
-              <div class="tag-row"><span class="work-tag">Level 3</span><span class="work-emoji" aria-hidden="true">📊</span></div>
-              <h4>현황판·브리핑 화면</h4>
-              <p>여러 정보를 한 화면에 모아 경영층·팀장이 바로 보게 합니다.</p>
-              <span class="example"><strong>예시</strong> 주간 업무 현황, 프로젝트 이슈 보드, 대표이사 모바일 브리핑</span>
-            </article>
-          </div>
-        </div>
-
-        <div class="work-boundary" role="note" aria-label="업무 활용 시 유의 기준">
-          <div class="boundary-item"><span class="mark">✓</span><span><strong>권장</strong> 개인·팀 단위의 설명, 정리, 입력, 간단 계산, 시연용 프로토타입부터 시작합니다.</span></div>
-          <div class="boundary-item"><span class="mark">!</span><span><strong>주의</strong> 로그인, 권한, 개인정보, 회사 핵심 데이터 저장이 필요한 앱은 정식 IT·보안 절차와 함께 검토합니다.</span></div>
-          <div class="boundary-item"><span class="mark">H</span><span><strong>HTML 권장</strong> AI가 React로 만들어주는 경우가 있지만, 사내 시스템에서 바로 활용하려면 HTML/CSS/JavaScript 기반의 단일 HTML 파일로 요청하는 것이 안전합니다.</span></div>
-          <div class="boundary-item"><span class="mark">R</span><span><strong>React란?</strong> 화면을 작은 부품처럼 나눠 만드는 웹 개발 라이브러리로, 별도 빌드·배포 환경이 필요한 경우가 많습니다.</span></div>
-        </div>
-      </div>
-    </section>
-
-    <!-- LEVELS -->
-    <section class="section" id="levels">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">비개발자 레벨</span>
-          <h2>이번 과정 실습은 Level 1~2 중심으로,<br>Level 3 일부까지 다룹니다.</h2>
-          <p>현실적으로 비개발자가 바로 만들어볼 수 있는 범위이자, 업무에 곧바로 연결할 수 있는 수준입니다.</p>
-        </div>
-        <div class="levels-table-wrap">
-          <div class="levels-scroll">
-            <table class="levels-table">
-              <thead>
-                <tr>
-                  <th>레벨</th>
-                  <th>구분</th>
-                  <th>설명 및 예시</th>
-                  <th>도달 가능성</th>
-                </tr>
-              </thead>
-              <tbody>
-                <tr class="today">
-                  <td><span class="level-badge">Level 1</span></td>
-                  <td><span class="level-type">정적 페이지</span></td>
-                  <td>보는 용도의 화면 (사내 이벤트 안내, 팀 소개, 카드형 정보)</td>
-                  <td><span class="level-reach today-tag">이번 실습</span></td>
-                </tr>
-                <tr class="today">
-                  <td><span class="level-badge">Level 2</span></td>
-                  <td><span class="level-type">상호작용 페이지</span></td>
-                  <td>버튼 반응, 입력폼, 간단한 필터·계산기 (견적 계산기, 설문 폼)</td>
-                  <td><span class="level-reach today-tag">이번 실습</span></td>
-                </tr>
-                <tr class="today">
-                  <td><span class="level-badge">Level 3</span></td>
-                  <td><span class="level-type">디자인·데이터 심화</span></td>
-                  <td>디자인 레퍼런스 반영, 외부 데이터 불러오기·API 연동 (스타일 리디자인, 날씨·뉴스 조회)</td>
-                  <td><span class="level-reach today-tag">심화 실습</span></td>
-                </tr>
-                <tr class="muted">
-                  <td><span class="level-badge dim">Level 4</span></td>
-                  <td><span class="level-type">업무형 앱</span></td>
-                  <td>실제 DB 연동, 로그인·권한, 타 부서 연계 (부서 운영툴)</td>
-                  <td><span class="level-reach dim-tag">별도 학습 필요</span></td>
-                </tr>
-                <tr class="muted">
-                  <td><span class="level-badge dim">Level 5</span></td>
-                  <td><span class="level-type">서비스형 제품</span></td>
-                  <td>다수 고객 대상, 결제 연동, 서버 안정성 유지 (상용 서비스)</td>
-                  <td><span class="level-reach dim-tag">전문 개발 영역</span></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- TOOLS -->
-    <section class="section alt" id="tools">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">LLM AI TOP 3</span>
-          <h2>어떤 도구를 쓸까.</h2>
-          <p>대표 LLM의 특성과 코딩 활용 도구를 한눈에 비교합니다.</p>
-          <p>※ LLM : Large Language Model, 사람의 언어를 이해하고 답변하는 생성형 인공지능 모델</p>
-        </div>
-
-        <div class="llm-compare-wrap">
-          <div class="llm-compare-main">
-          <div class="llm-stage">
-            <!-- ChatGPT (bottom) -->
-            <article class="llm-brand tier-bot chatgpt">
-              <div class="llm-head-row">
-                <span class="llm-mark" aria-hidden="true">
-                  <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                    <path fill="#000" d="M59.53 26.21a15.94 15.94 0 0 0-1.37-13.08 16.1 16.1 0 0 0-17.35-7.72 15.94 15.94 0 0 0-12.02-5.36 16.1 16.1 0 0 0-15.35 11.14 15.95 15.95 0 0 0-10.67 7.73 16.11 16.11 0 0 0 1.98 18.86 15.94 15.94 0 0 0 1.36 13.08 16.1 16.1 0 0 0 17.35 7.72 15.93 15.93 0 0 0 12.02 5.37 16.1 16.1 0 0 0 15.36-11.15 15.95 15.95 0 0 0 10.67-7.73 16.12 16.12 0 0 0-1.98-18.86ZM35.8 57.96a11.95 11.95 0 0 1-7.67-2.77l.38-.22 12.74-7.36a2.07 2.07 0 0 0 1.05-1.81V27.84l5.38 3.11a.2.2 0 0 1 .1.14v14.88a11.97 11.97 0 0 1-11.98 11.99ZM10.04 46.96a11.94 11.94 0 0 1-1.43-8.04l.38.23 12.75 7.36a2.07 2.07 0 0 0 2.09 0l15.57-8.99v6.21a.19.19 0 0 1-.08.16L26.42 51.34a11.99 11.99 0 0 1-16.38-4.38ZM6.7 19.16a11.94 11.94 0 0 1 6.24-5.27v15.14a2.04 2.04 0 0 0 1.04 1.8l15.5 8.95-5.38 3.1a.19.19 0 0 1-.18 0L11.04 35.44A11.99 11.99 0 0 1 6.7 19.16ZM49.13 29.02 33.55 20.03l5.37-3.1a.19.19 0 0 1 .18 0l12.88 7.44a11.99 11.99 0 0 1-1.85 21.64V30.87a2.05 2.05 0 0 0-1-1.85Zm5.35-8.06-.38-.23-12.73-7.41a2.07 2.07 0 0 0-2.1 0l-15.56 8.98v-6.21a.18.18 0 0 1 .07-.16L36.52 8.6a11.99 11.99 0 0 1 17.96 12.36ZM21.1 32l-5.38-3.1a.2.2 0 0 1-.1-.14V13.86a12 12 0 0 1 19.65-9.22l-.38.22-12.73 7.36a2.07 2.07 0 0 0-1.05 1.81L21.09 32Zm2.92-6.3L31 21.66l6.96 4.02v8.04L30.99 37.7l-6.97-4.02Z"/>
-                  </svg>
-                </span>
-                <h3>ChatGPT</h3>
-              </div>
-              <p class="llm-desc">멀티모달 (글, 음성, 이미지, 코딩)</p>
-              <small class="llm-tools">Codex</small>
-            </article>
-
-            <!-- Gemini (middle) -->
-            <article class="llm-brand tier-mid gemini">
-              <div class="llm-head-row">
-                <span class="llm-mark" aria-hidden="true">
-                  <svg viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
-                    <defs>
-                      <radialGradient id="gemGrad" cx="50%" cy="50%" r="60%">
-                        <stop offset="0%" stop-color="#89B3FF"/>
-                        <stop offset="50%" stop-color="#1A73E8"/>
-                        <stop offset="100%" stop-color="#0B57D0"/>
-                      </radialGradient>
-                    </defs>
-                    <path d="M32 2 C32 18 46 32 62 32 C46 32 32 46 32 62 C32 46 18 32 2 32 C18 32 32 18 32 2 Z" fill="url(#gemGrad)"/>
-                  </svg>
-                </span>
-                <h3>Gemini</h3>
-              </div>
-              <p class="llm-desc">멀티모달 (글, 영상, 이미지, 음악, 코딩)</p>
-              <small class="llm-tools">Google AI Studio · Antigravity</small>
-            </article>
-
-            <!-- Claude (top) -->
-            <article class="llm-brand tier-top claude">
-              <div class="llm-head-row">
-                <span class="llm-mark" aria-hidden="true">
-                  <img src="https://raw.githubusercontent.com/SinaBroMan/claude-logo-/main/%ED%81%B4%EB%A1%9C%EB%93%9C-removebg-preview%20(1).png" alt="Claude 로고" class="llm-logo-img" width="116" height="116" decoding="async" referrerpolicy="no-referrer" />
-                </span>
-                <h3>Claude</h3>
-              </div>
-              <p class="llm-desc">논리 분석 · 추론 · 코딩 · 에이전틱</p>
-              <small class="llm-tools">Claude Code</small>
-            </article>
-          </div>
-
-          <!-- Copilot — 축약형 표기 (박스 없음); 비교축 높이에 포함되도록 main 안에 배치 -->
-          <div class="copilot-inline">
-            <span class="copilot-mark" aria-hidden="true">
-              <img src="https://raw.githubusercontent.com/SinaBroMan/copilot_logo/main/copilot_OIP.webp" alt="Copilot 로고" class="copilot-logo-img" width="64" height="64" decoding="async" referrerpolicy="no-referrer" />
-            </span>
-            <span class="copilot-name">Copilot</span>
-            <span class="copilot-note"><strong>사내용 AI - Level 1~2와 Level 3 일부 수준은 충분히 활용 가능</strong> <span>(외부 데이터 불러오기·API 연동은 보안 정책 상 일부 제한)</span></span>
-          </div>
-          </div>
-
-          <!-- 우측 상대수준 비교축 (스테이지+Copilot 전체 높이) -->
-          <aside class="llm-axis" aria-label="상대적 수준 비교축">
-            <span class="llm-axis-item axis-top">에테르노</span>
-            <span class="llm-axis-item axis-mid">디에이치</span>
-            <span class="llm-axis-item axis-bot">힐스테이트</span>
-          </aside>
-        </div>
-
-        <div class="tools-note">
-          <strong>전용 코딩 도구가 없어도 시작할 수 있습니다.</strong><br>
+</div>
+</section>
+<!-- WORK USE CASES -->
+<section class="section" id="work-use">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">업무 활용 사례</span>
+<h2>웹페이지/앱으로<br/>업무에서 무엇을 할 수 있을까?</h2>
+<p>핵심은 거창한 시스템 개발이 아니라, 반복 설명·입력·정리·공유가 필요한 일을 작은 화면으로 바꾸는 것입니다.</p>
+</div>
+<div class="work-use-shell">
+<aside class="work-use-lead">
+<span class="kicker">업무 적용 관점</span>
+<h3>문서 하나를<br/>“눌러보고 쓰는 화면”으로 바꿉니다.</h3>
+<p>공지문, 엑셀 체크리스트, 회의 메모, 보고서 초안처럼 정적인 자료를 사용자가 바로 이해하고 입력하고 확인할 수 있는 웹페이지나 간단한 앱으로 전환할 수 있습니다.</p>
+</aside>
+<div aria-label="업무 활용 예시" class="work-use-list">
+<article class="work-card">
+<div class="tag-row"><span class="work-tag">Level 1</span><span aria-hidden="true" class="work-emoji">📌</span></div>
+<h4>공지·가이드 페이지</h4>
+<p>긴 안내문을 카드형 구조로 바꿔 핵심만 빠르게 보게 합니다.</p>
+<span class="example"><strong>예시</strong> AI 사용 가이드, 교육 안내, 행사 신청 방법, 신규 제도 안내 페이지</span>
+</article>
+<article class="work-card">
+<div class="tag-row"><span class="work-tag">Level 2</span><span aria-hidden="true" class="work-emoji">🧮</span></div>
+<h4>간단 계산기·판정 도구</h4>
+<p>사용자가 값을 넣으면 결과와 판단 기준을 즉시 보여줍니다.</p>
+<span class="example"><strong>예시</strong> 품질 이슈 중대성 판정, 교육 대상 우선순위 계산, 비용·일정 간이 산정</span>
+</article>
+<article class="work-card">
+<div class="tag-row"><span class="work-tag">Level 2</span><span aria-hidden="true" class="work-emoji">📝</span></div>
+<h4>입력폼·체크리스트</h4>
+<p>받아야 할 정보를 빠짐없이 입력하게 하고, 누락을 줄입니다.</p>
+<span class="example"><strong>예시</strong> 회의 안건 수집, 현장 점검 체크리스트, AI Needs 접수 화면</span>
+</article>
+<article class="work-card">
+<div class="tag-row"><span class="work-tag">Level 3</span><span aria-hidden="true" class="work-emoji">📊</span></div>
+<h4>현황판·브리핑 화면</h4>
+<p>여러 정보를 한 화면에 모아 경영층·팀장이 바로 보게 합니다.</p>
+<span class="example"><strong>예시</strong> 주간 업무 현황, 프로젝트 이슈 보드, 대표이사 모바일 브리핑</span>
+</article>
+</div>
+</div>
+<div aria-label="업무 활용 시 유의 기준" class="work-boundary" role="note">
+<div class="boundary-item"><span class="mark">✓</span><span><strong>권장</strong> 개인·팀 단위의 설명, 정리, 입력, 간단 계산, 시연용 프로토타입부터 시작합니다.</span></div>
+<div class="boundary-item"><span class="mark">!</span><span><strong>주의</strong> 로그인, 권한, 개인정보, 회사 핵심 데이터 저장이 필요한 앱은 정식 IT·보안 절차와 함께 검토합니다.</span></div>
+<div class="boundary-item"><span class="mark">H</span><span><strong>HTML 권장</strong> AI가 React로 만들어주는 경우가 있지만, 사내 시스템에서 바로 활용하려면 HTML/CSS/JavaScript 기반의 단일 HTML 파일로 요청하는 것이 안전합니다.</span></div>
+<div class="boundary-item"><span class="mark">R</span><span><strong>React란?</strong> 화면을 작은 부품처럼 나눠 만드는 웹 개발 라이브러리로, 별도 빌드·배포 환경이 필요한 경우가 많습니다.</span></div>
+</div>
+</div>
+</section>
+<!-- LEVELS -->
+<section class="section" id="levels">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">비개발자 레벨</span>
+<h2>이번 과정 실습은 Level 1~2 중심으로,<br/>Level 3 일부까지 다룹니다.</h2>
+<p>현실적으로 비개발자가 바로 만들어볼 수 있는 범위이자, 업무에 곧바로 연결할 수 있는 수준입니다.</p>
+</div>
+<div class="levels-table-wrap">
+<div class="levels-scroll">
+<table class="levels-table">
+<thead>
+<tr>
+<th>레벨</th>
+<th>구분</th>
+<th>설명 및 예시</th>
+<th>도달 가능성</th>
+</tr>
+</thead>
+<tbody>
+<tr class="today">
+<td><span class="level-badge">Level 1</span></td>
+<td><span class="level-type">정적 페이지</span></td>
+<td>보는 용도의 화면 (사내 이벤트 안내, 팀 소개, 카드형 정보)</td>
+<td><span class="level-reach today-tag">이번 실습</span></td>
+</tr>
+<tr class="today">
+<td><span class="level-badge">Level 2</span></td>
+<td><span class="level-type">상호작용 페이지</span></td>
+<td>버튼 반응, 입력폼, 간단한 필터·계산기 (견적 계산기, 설문 폼)</td>
+<td><span class="level-reach today-tag">이번 실습</span></td>
+</tr>
+<tr class="today">
+<td><span class="level-badge">Level 3</span></td>
+<td><span class="level-type">디자인·데이터 심화</span></td>
+<td>디자인 레퍼런스 반영, 외부 데이터 불러오기·API 연동 (스타일 리디자인, 날씨·뉴스 조회)</td>
+<td><span class="level-reach today-tag">심화 실습</span></td>
+</tr>
+<tr class="muted">
+<td><span class="level-badge dim">Level 4</span></td>
+<td><span class="level-type">업무형 앱</span></td>
+<td>실제 DB 연동, 로그인·권한, 타 부서 연계 (부서 운영툴)</td>
+<td><span class="level-reach dim-tag">별도 학습 필요</span></td>
+</tr>
+<tr class="muted">
+<td><span class="level-badge dim">Level 5</span></td>
+<td><span class="level-type">서비스형 제품</span></td>
+<td>다수 고객 대상, 결제 연동, 서버 안정성 유지 (상용 서비스)</td>
+<td><span class="level-reach dim-tag">전문 개발 영역</span></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+</div>
+</section>
+<!-- TOOLS -->
+<section class="section alt" id="tools">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">LLM AI TOP 3</span>
+<h2>어떤 도구를 쓸까.</h2>
+<p>대표 LLM의 특성과 코딩 활용 도구를 한눈에 비교합니다.</p>
+<p>※ LLM : Large Language Model, 사람의 언어를 이해하고 답변하는 생성형 인공지능 모델</p>
+</div>
+<div class="llm-compare-wrap">
+<div class="llm-compare-main">
+<div class="llm-stage">
+<!-- ChatGPT (bottom) -->
+<article class="llm-brand tier-bot chatgpt">
+<div class="llm-head-row">
+<span aria-hidden="true" class="llm-mark">
+<svg viewbox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+<path d="M59.53 26.21a15.94 15.94 0 0 0-1.37-13.08 16.1 16.1 0 0 0-17.35-7.72 15.94 15.94 0 0 0-12.02-5.36 16.1 16.1 0 0 0-15.35 11.14 15.95 15.95 0 0 0-10.67 7.73 16.11 16.11 0 0 0 1.98 18.86 15.94 15.94 0 0 0 1.36 13.08 16.1 16.1 0 0 0 17.35 7.72 15.93 15.93 0 0 0 12.02 5.37 16.1 16.1 0 0 0 15.36-11.15 15.95 15.95 0 0 0 10.67-7.73 16.12 16.12 0 0 0-1.98-18.86ZM35.8 57.96a11.95 11.95 0 0 1-7.67-2.77l.38-.22 12.74-7.36a2.07 2.07 0 0 0 1.05-1.81V27.84l5.38 3.11a.2.2 0 0 1 .1.14v14.88a11.97 11.97 0 0 1-11.98 11.99ZM10.04 46.96a11.94 11.94 0 0 1-1.43-8.04l.38.23 12.75 7.36a2.07 2.07 0 0 0 2.09 0l15.57-8.99v6.21a.19.19 0 0 1-.08.16L26.42 51.34a11.99 11.99 0 0 1-16.38-4.38ZM6.7 19.16a11.94 11.94 0 0 1 6.24-5.27v15.14a2.04 2.04 0 0 0 1.04 1.8l15.5 8.95-5.38 3.1a.19.19 0 0 1-.18 0L11.04 35.44A11.99 11.99 0 0 1 6.7 19.16ZM49.13 29.02 33.55 20.03l5.37-3.1a.19.19 0 0 1 .18 0l12.88 7.44a11.99 11.99 0 0 1-1.85 21.64V30.87a2.05 2.05 0 0 0-1-1.85Zm5.35-8.06-.38-.23-12.73-7.41a2.07 2.07 0 0 0-2.1 0l-15.56 8.98v-6.21a.18.18 0 0 1 .07-.16L36.52 8.6a11.99 11.99 0 0 1 17.96 12.36ZM21.1 32l-5.38-3.1a.2.2 0 0 1-.1-.14V13.86a12 12 0 0 1 19.65-9.22l-.38.22-12.73 7.36a2.07 2.07 0 0 0-1.05 1.81L21.09 32Zm2.92-6.3L31 21.66l6.96 4.02v8.04L30.99 37.7l-6.97-4.02Z" fill="#000"></path>
+</svg>
+</span>
+<h3>ChatGPT</h3>
+</div>
+<p class="llm-desc">멀티모달 (글, 음성, 이미지, 코딩)</p>
+<small class="llm-tools">Codex</small>
+</article>
+<!-- Gemini (middle) -->
+<article class="llm-brand tier-mid gemini">
+<div class="llm-head-row">
+<span aria-hidden="true" class="llm-mark">
+<svg viewbox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+<defs>
+<radialgradient cx="50%" cy="50%" id="gemGrad" r="60%">
+<stop offset="0%" stop-color="#89B3FF"></stop>
+<stop offset="50%" stop-color="#1A73E8"></stop>
+<stop offset="100%" stop-color="#0B57D0"></stop>
+</radialgradient>
+</defs>
+<path d="M32 2 C32 18 46 32 62 32 C46 32 32 46 32 62 C32 46 18 32 2 32 C18 32 32 18 32 2 Z" fill="url(#gemGrad)"></path>
+</svg>
+</span>
+<h3>Gemini</h3>
+</div>
+<p class="llm-desc">멀티모달 (글, 영상, 이미지, 음악, 코딩)</p>
+<small class="llm-tools">Google AI Studio · Antigravity</small>
+</article>
+<!-- Claude (top) -->
+<article class="llm-brand tier-top claude">
+<div class="llm-head-row">
+<span aria-hidden="true" class="llm-mark">
+<img alt="Claude 로고" class="llm-logo-img" decoding="async" height="116" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/SinaBroMan/claude-logo-/main/%ED%81%B4%EB%A1%9C%EB%93%9C-removebg-preview%20(1).png" width="116"/>
+</span>
+<h3>Claude</h3>
+</div>
+<p class="llm-desc">논리 분석 · 추론 · 코딩 · 에이전틱</p>
+<small class="llm-tools">Claude Code</small>
+</article>
+</div>
+<!-- Copilot — 축약형 표기 (박스 없음); 비교축 높이에 포함되도록 main 안에 배치 -->
+<div class="copilot-inline">
+<span aria-hidden="true" class="copilot-mark">
+<img alt="Copilot 로고" class="copilot-logo-img" decoding="async" height="64" referrerpolicy="no-referrer" src="https://raw.githubusercontent.com/SinaBroMan/copilot_logo/main/copilot_OIP.webp" width="64"/>
+</span>
+<span class="copilot-name">Copilot</span>
+<span class="copilot-note"><strong>사내용 AI - Level 1~2와 Level 3 일부 수준은 충분히 활용 가능</strong> <span>(외부 데이터 불러오기·API 연동은 보안 정책 상 일부 제한)</span></span>
+</div>
+</div>
+<!-- 우측 상대수준 비교축 (스테이지+Copilot 전체 높이) -->
+<aside aria-label="상대적 수준 비교축" class="llm-axis">
+<span class="llm-axis-item axis-top">에테르노</span>
+<span class="llm-axis-item axis-mid">디에이치</span>
+<span class="llm-axis-item axis-bot">힐스테이트</span>
+</aside>
+</div>
+<div class="tools-note">
+<strong>전용 코딩 도구가 없어도 시작할 수 있습니다.</strong><br/>
           ChatGPT·Gemini·Claude·Copilot 같은 각 LLM 대화창에서도 만들고 싶은 화면과 기능을 설명하면, 바이브코딩 방식으로 웹페이지나 간단한 앱 초안을 바로 생성할 수 있습니다.
         </div>
-      </div>
-    </section>
-
-    <!-- HABITS -->
-    <section class="section" id="habits">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">잘하는 사람의 습관</span>
-          <h2>좋은 결과는 좋은 프롬프트가 아니라,<br>좋은 문제정의에서 나옵니다.</h2>
-          <p>아래 5가지만 지켜도 실습 결과가 훨씬 좋아집니다.</p>
-        </div>
-        <div class="grid grid-5">
-          <article class="card habit-card">
-            <span class="num-dot">1</span>
-            <h4>한 문장 정의</h4>
-            <p>만들고 싶은 것의 목적을 딱 한 문장으로 정리합니다.</p>
-          </article>
-          <article class="card habit-card">
-            <span class="num-dot">2</span>
-            <h4>특정 사용자 떠올리기</h4>
-            <p>"누구나"가 아니라 "우리 팀 김대리"가 쓴다고 상상합니다.</p>
-          </article>
-          <article class="card habit-card">
-            <span class="num-dot">3</span>
-            <h4>눈에 보이듯 묘사</h4>
-            <p>"상단에 검색바, 가운데 파란 버튼"처럼 구체적으로 설명합니다.</p>
-          </article>
-          <article class="card habit-card">
-            <span class="num-dot">4</span>
-            <h4>작게 쪼개기</h4>
-            <p>한 번에 크게 말하지 말고, 뼈대부터 만든 뒤 살을 붙입니다.</p>
-          </article>
-          <article class="card habit-card">
-            <span class="num-dot">5</span>
-            <h4>결과 보고 수정</h4>
-            <p>결과물을 본 뒤 "이 부분만 바꿔줘" 하고 반복 요청합니다.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- PRACTICE -->
-    <section class="section alt" id="practice">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">실습 안내</span>
-          <h2>이제 직접 만들어봅니다.</h2>
-          <p>추천 도구는 <strong style="color:var(--navy)">Copilot</strong>입니다. Pages에서 결과 화면을 확인하며 따라해보세요.</p>
-          <p>더 좋은 결과를 위해 우측 상단 모델 선택에서 <strong style="color:var(--navy)">GPT 5.4 깊이 생각하기</strong> 버전으로 설정하는 것을 권장합니다.</p>
-        </div>
-
-        <div class="practice-flow" aria-label="실습 진행 흐름">
-          <div class="practice-flow-card"><span>준비</span><strong>Pages 설정</strong><p>프롬프트 입력 전, 도구에서 Pages를 먼저 선택합니다.</p></div>
-          <div class="practice-flow-card"><span>Level 1</span><strong>소개 화면</strong><p>정적 페이지로 구조와 분위기를 잡습니다.</p></div>
-          <div class="practice-flow-card"><span>Level 2</span><strong>질문 기능</strong><p>버튼·선택·결과 화면을 연결합니다.</p></div>
-          <div class="practice-flow-card"><span>Level 3</span><strong>디자인 심화</strong><p>결과 카드와 공유 요소를 다듬습니다.</p></div>
-        </div>
-
-        <!-- Pages 사전 안내 -->
-        <div class="canvas-notice" role="note">
-          <div class="canvas-notice-icon" aria-hidden="true">!</div>
-          <div class="canvas-notice-body">
-            <strong>프롬프트 입력 전, Copilot 도구에서 <kbd>Pages</kbd>를 먼저 설정해주세요 (프롬프트 입력창 왼쪽 아래 '+' 클릭 후 '더보기 > 페이지' 클릭)</strong>
-            <p>Copilot 입력창에서 바로 프롬프트를 넣기 전에 도구 메뉴에서 <kbd>Pages</kbd>를 선택하면 결과 화면을 더 쉽게 확인하고 다듬을 수 있습니다.<br>결과를 보다가 제목, 버튼명, 설명 문구처럼 간단한 텍스트만 고치고 싶을 때는 <kbd>Pages</kbd>의 코드 화면에서 해당 문구를 찾아 직접 수정해도 됩니다.</p>
-          </div>
-        </div>
-
-        <div class="preview-fallback" role="note" aria-label="Copilot Pages 미리보기 비활성화 시 확인 방법">
-          <strong>미리보기가 켜지지 않는 경우, HTML 파일로 저장해서 확인하면 됩니다.</strong>
-          <p>회사 보안 정책이나 Copilot Pages 설정에 따라 코드 미리보기가 활성화되지 않을 수 있습니다. 이때는 생성된 코드를 HTML 파일로 저장해 브라우저에서 직접 열어보면 됩니다.</p>
-          <ol>
-            <li>Copilot Pages 오른쪽 코드 화면에서 전체 HTML 코드를 선택합니다. <code>Ctrl + A</code>를 누른 뒤 <code>Ctrl + C</code>로 복사합니다.</li>
-            <li>Windows 검색창에서 <code>메모장</code>을 검색해 실행합니다.</li>
-            <li>빈 메모장 화면에 복사한 코드를 <code>Ctrl + V</code>로 붙여 넣습니다.</li>
-            <li>상단 메뉴에서 <code>파일</code> → <code>다른 이름으로 저장</code>을 선택합니다.</li>
-            <li>파일 이름은 예를 들어 <code>company-survival-test.html</code>처럼 마지막 확장자를 반드시 <code>.html</code>로 입력합니다.</li>
-            <li><code>파일 형식</code>은 <code>모든 파일(*.*)</code>로 변경하고, <code>인코딩</code>은 <code>UTF-8</code>로 선택한 뒤 저장합니다.</li>
-            <li>저장된 HTML 파일을 더블클릭하면 Edge 또는 Chrome 브라우저에서 결과 화면을 확인할 수 있습니다.</li>
-          </ol>
-          <div class="tip">주의: 파일 형식을 “텍스트 문서”로 두면 <code>.html.txt</code>로 저장될 수 있습니다. 파일명이 <code>.html</code>로 끝나는지 꼭 확인해주세요.</div>
-        </div>
-
-        <div class="lab-shell">
-          <!-- PRACTICE: L1 + L2 -->
-          <div class="lab-panel active" id="panel-survive" role="tabpanel">
-            <div class="lab-head">
-              <span class="tag">실습 · Copilot Pages</span>
-              <h3>🧭 회사 생존 유형 테스트</h3>
-              <p>회사에서 나는 어떤 방식으로 살아남는 사람일까? 가벼운 질문 몇 개로 알아보는 밈 테스트 페이지를 만듭니다. 아래 단계는 그대로 복사해 넣을 수 있고, Level 1 → Level 2 → Level 3로 갈수록 결과 차이가 눈에 보이게 구성했습니다.</p>
-            </div>
-
-            <div class="steps">
-              <!-- LEVEL 1 -->
-              <article class="step-card">
-                <div class="step-no"><span>LEVEL</span><strong>1</strong></div>
-                <div class="step-body">
-                  <h4>테스트 소개 페이지 만들기</h4>
-                  <div class="prompt-grid">
-                    <div class="prompt-box">
-                      <strong>🎯 목표</strong>
-                      <div class="muted-text">아직 질문 기능은 없음. 제목 · 짧은 소개 · 시작 버튼 · 4개 유형 미리보기 카드가 보이는 깔끔한 정적 소개 페이지.</div>
-                    </div>
-                    <div class="prompt-box">
-                      <strong>💬 입력 프롬프트</strong>
-                      <div class="prompt-text">회사 생존 유형 테스트 페이지를 HTML로 예쁘게 만들어줘. (미리보기 필요)
+</div>
+</section>
+<!-- HABITS -->
+<section class="section" id="habits">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">잘하는 사람의 습관</span>
+<h2>좋은 결과는 좋은 프롬프트가 아니라,<br/>좋은 문제정의에서 나옵니다.</h2>
+<p>아래 5가지만 지켜도 실습 결과가 훨씬 좋아집니다.</p>
+</div>
+<div class="grid grid-5">
+<article class="card habit-card">
+<span class="num-dot">1</span>
+<h4>한 문장 정의</h4>
+<p>만들고 싶은 것의 목적을 딱 한 문장으로 정리합니다.</p>
+</article>
+<article class="card habit-card">
+<span class="num-dot">2</span>
+<h4>특정 사용자 떠올리기</h4>
+<p>"누구나"가 아니라 "우리 팀 김대리"가 쓴다고 상상합니다.</p>
+</article>
+<article class="card habit-card">
+<span class="num-dot">3</span>
+<h4>눈에 보이듯 묘사</h4>
+<p>"상단에 검색바, 가운데 파란 버튼"처럼 구체적으로 설명합니다.</p>
+</article>
+<article class="card habit-card">
+<span class="num-dot">4</span>
+<h4>작게 쪼개기</h4>
+<p>한 번에 크게 말하지 말고, 뼈대부터 만든 뒤 살을 붙입니다.</p>
+</article>
+<article class="card habit-card">
+<span class="num-dot">5</span>
+<h4>결과 보고 수정</h4>
+<p>결과물을 본 뒤 "이 부분만 바꿔줘" 하고 반복 요청합니다.</p>
+</article>
+</div>
+</div>
+</section>
+<!-- PRACTICE -->
+<section class="section alt" id="practice">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">실습 안내</span>
+<h2>이제 Copilot으로 직접 만들어봅니다.</h2>
+<p>추천 도구는 <strong style="color:var(--navy)">Copilot</strong>입니다. 생성된 HTML 코드를 복사해 파일로 저장한 뒤 브라우저에서 확인하는 방식으로 진행합니다.</p>
+<p>더 좋은 결과를 위해 우측 상단 모델 선택에서 <strong style="color:var(--navy)">GPT 5.4 깊이 생각하기</strong> 버전으로 설정하는 것을 권장합니다.</p>
+</div>
+<div aria-label="실습 진행 흐름" class="practice-flow">
+<div class="practice-flow-card"><span>준비</span><strong>HTML 저장 방식 확인</strong><p>Copilot이 만든 코드를 복사해 .html 파일로 저장합니다.</p></div>
+<div class="practice-flow-card"><span>Level 1</span><strong>소개 화면</strong><p>정적 페이지로 구조와 분위기를 잡습니다.</p></div>
+<div class="practice-flow-card"><span>Level 2</span><strong>질문 기능</strong><p>버튼·선택·결과 화면을 연결합니다.</p></div>
+<div class="practice-flow-card"><span>Level 3</span><strong>디자인 심화</strong><p>결과 카드와 공유 요소를 다듬습니다.</p></div>
+</div>
+<!-- HTML 저장 안내 -->
+<div class="canvas-notice" role="note">
+<div aria-hidden="true" class="canvas-notice-icon">!</div>
+<div class="canvas-notice-body">
+<strong>이번 실습은 Copilot에서 생성한 HTML 코드를 파일로 저장해 확인합니다</strong>
+<p>실습 대상자는 Copilot을 사용하므로 별도 편집 도구를 열지 않아도 됩니다. 프롬프트를 입력해 HTML 코드를 생성한 뒤, 코드 전체를 복사해 Windows 메모장에 붙여 넣고 <kbd>.html</kbd> 파일로 저장하면 브라우저에서 바로 확인할 수 있습니다.</p>
+</div>
+</div>
+<div aria-label="HTML 코드 파일 저장 방법" class="preview-fallback" role="note">
+<strong>생성된 HTML 코드를 파일로 저장하는 공식 절차</strong>
+<p>Copilot에서 결과 코드가 생성되면 아래 순서대로 저장해 확인합니다. 핵심은 <strong>전체 HTML 코드를 복사한 뒤, 파일 형식을 ‘모든 파일’로 바꾸고 확장자를 .html로 저장</strong>하는 것입니다.</p>
+<ol>
+<li>Copilot이 생성한 답변에서 HTML 코드 블록을 확인합니다. 코드 블록 오른쪽 위의 <code>복사</code> 버튼이 있으면 클릭하고, 없으면 코드 영역을 전체 선택한 뒤 <code>Ctrl + C</code>로 복사합니다.</li>
+<li>Windows 작업표시줄 검색창에서 <code>메모장</code>을 검색해 실행합니다.</li>
+<li>빈 메모장 화면에 복사한 코드를 <code>Ctrl + V</code>로 붙여 넣습니다.</li>
+<li>상단 메뉴에서 <code>파일</code> → <code>다른 이름으로 저장</code>을 선택합니다.</li>
+<li>저장 위치를 선택한 뒤, 파일 이름을 예를 들어 <code>company-survival-test.html</code>처럼 입력합니다. 파일명 끝의 확장자는 반드시 <code>.html</code>이어야 합니다.</li>
+<li><code>파일 형식</code>은 <code>모든 파일(*.*)</code>로 변경합니다. <code>텍스트 문서(*.txt)</code>로 두면 HTML 파일이 아니라 텍스트 파일로 저장될 수 있습니다.</li>
+<li><code>인코딩</code>은 <code>UTF-8</code>로 선택한 뒤 <code>저장</code>을 누릅니다.</li>
+<li>저장된 HTML 파일을 더블클릭하면 Edge 또는 Chrome 브라우저에서 결과 화면을 확인할 수 있습니다.</li>
+</ol>
+<div class="tip">주의: 저장 후 파일명이 <code>company-survival-test.html.txt</code>처럼 끝나면 잘못 저장된 것입니다. 이 경우 다시 저장하면서 파일 형식을 <code>모든 파일(*.*)</code>로 바꾸고, 파일명을 <code>.html</code>로 끝나게 입력해주세요.</div>
+</div><div aria-label="업무 외 도구 활용 팁" class="canvas-notice external-tip" role="note">
+<div aria-hidden="true" class="canvas-notice-icon">＋</div>
+<div class="canvas-notice-body">
+<strong>업무 외 개인 실습에서는 Canvas 기능을 활용하면 더 편합니다</strong>
+<p>개인 학습이나 업무 외 용도로 ChatGPT, Gemini 등을 사용할 때는 <kbd>Canvas</kbd> 또는 캔버스 기능을 활성화한 뒤 프롬프트를 입력하면 결과 화면을 미리보기로 바로 확인하고 수정하기가 편합니다. 단, 회사 자료·개인정보·민감정보는 외부 도구에 입력하지 않는 것을 원칙으로 합니다.</p>
+</div>
+</div>
+<div class="lab-shell">
+<!-- PRACTICE: L1 + L2 -->
+<div class="lab-panel active" id="panel-survive" role="tabpanel">
+<div class="lab-head">
+<span class="tag">실습 · Copilot</span>
+<h3>🧭 회사 생존 유형 테스트</h3>
+<p>회사에서 나는 어떤 방식으로 살아남는 사람일까? 가벼운 질문 몇 개로 알아보는 밈 테스트 페이지를 만듭니다. 아래 단계는 그대로 복사해 넣을 수 있고, Level 1 → Level 2 → Level 3로 갈수록 결과 차이가 눈에 보이게 구성했습니다.</p>
+</div>
+<div class="steps">
+<!-- LEVEL 1 -->
+<article class="step-card">
+<div class="step-no"><span>LEVEL</span><strong>1</strong></div>
+<div class="step-body">
+<h4>테스트 소개 페이지 만들기</h4>
+<div class="prompt-grid">
+<div class="prompt-box">
+<strong>🎯 목표</strong>
+<div class="muted-text">아직 질문 기능은 없음. 제목 · 짧은 소개 · 시작 버튼 · 4개 유형 소개 카드가 보이는 깔끔한 정적 소개 페이지.</div>
+</div>
+<div class="prompt-box">
+<strong>💬 입력 프롬프트</strong>
+<div class="prompt-text">회사 생존 유형 테스트 페이지를 HTML로 예쁘게 만들어줘.
+HTML, CSS, JavaScript를 하나의 파일 안에 넣은 완성형 단일 HTML 코드로 제공해줘.
+내가 코드 전체를 복사해서 Windows 메모장에 붙여 넣고 .html 파일로 저장하면 바로 브라우저에서 열 수 있게 해줘.
 
 맨 위에는 제목이 크게 보이고, 바로 아래에 이 테스트가 어떤 건지 한두 줄짜리 짧은 소개가 있었으면 좋겠어.
 그 아래에 "테스트 시작" 버튼을 크고 눈에 띄게 넣어줘.
 
-아직 질문 기능은 넣지 말고, 어떤 결과 유형이 나오는지 미리 보여주는 소개 카드 4개를 가로로 깔끔하게 보여줘.
+아직 질문 기능은 넣지 말고, 어떤 결과 유형이 나오는지 보여주는 소개 카드 4개를 가로로 깔끔하게 보여줘.
 유형은 아래 4가지야.
 - 조용한 생존러
 - 눈치 만렙 조율러
@@ -2062,12 +2042,14 @@
 분위기는 요즘 밈 테스트 앱처럼 세련되고 가볍게 해줘.
 배경은 흰색, 포인트는 네이비(#002C5F), 보조색은 바이올렛(#7C63D7) 정도로 쓰면 좋겠어.
 모바일에서도 예쁘게 보이게 해줘.<button class="copy-btn" data-copy-target="prompt-l1">⧉</button></div>
-                      <textarea id="prompt-l1" class="sr-only" aria-hidden="true" readonly>회사 생존 유형 테스트 페이지를 HTML로 예쁘게 만들어줘. (미리보기 필요)
+<textarea aria-hidden="true" class="sr-only" id="prompt-l1" readonly="">회사 생존 유형 테스트 페이지를 HTML로 예쁘게 만들어줘.
+HTML, CSS, JavaScript를 하나의 파일 안에 넣은 완성형 단일 HTML 코드로 제공해줘.
+내가 코드 전체를 복사해서 Windows 메모장에 붙여 넣고 .html 파일로 저장하면 바로 브라우저에서 열 수 있게 해줘.
 
 맨 위에는 제목이 크게 보이고, 바로 아래에 이 테스트가 어떤 건지 한두 줄짜리 짧은 소개가 있었으면 좋겠어.
 그 아래에 "테스트 시작" 버튼을 크고 눈에 띄게 넣어줘.
 
-아직 질문 기능은 넣지 말고, 어떤 결과 유형이 나오는지 미리 보여주는 소개 카드 4개를 가로로 깔끔하게 보여줘.
+아직 질문 기능은 넣지 말고, 어떤 결과 유형이 나오는지 보여주는 소개 카드 4개를 가로로 깔끔하게 보여줘.
 유형은 아래 4가지야.
 - 조용한 생존러
 - 눈치 만렙 조율러
@@ -2078,28 +2060,29 @@
 분위기는 요즘 밈 테스트 앱처럼 세련되고 가볍게 해줘.
 배경은 흰색, 포인트는 네이비(#002C5F), 보조색은 바이올렛(#7C63D7) 정도로 쓰면 좋겠어.
 모바일에서도 예쁘게 보이게 해줘.</textarea>
-                    </div>
-                    <div class="prompt-box">
-                      <strong>✨ 기대 결과 / 다음 요청</strong>
-                      <div class="muted-text">테스트를 시작하기 전의 감성적인 소개 화면이 완성됨. 어떤 유형들이 있는지만 살짝 맛보는 단계.<br><br>👉 다음: "이제 시작 버튼을 누르면 실제 질문이 넘어가고 결과가 나오게 해보자."</div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-
-              <!-- LEVEL 2 -->
-              <article class="step-card">
-                <div class="step-no"><span>LEVEL</span><strong>2</strong></div>
-                <div class="step-body">
-                  <h4>질문에 답하면 결과가 나오는 테스트 만들기</h4>
-                  <div class="prompt-grid">
-                    <div class="prompt-box">
-                      <strong>🎯 목표</strong>
-                      <div class="muted-text">시작 버튼 → 질문 한 개씩 → 보기 선택 → 다음 질문 → 마지막에 4개 유형 중 하나 결과 → 다시 해보기까지 되는 실제 인터랙티브 테스트.</div>
-                    </div>
-                    <div class="prompt-box">
-                      <strong>💬 입력 프롬프트</strong>
-                      <div class="prompt-text">방금 만든 회사 생존 유형 테스트 페이지를 이어서 수정해줘.
+</div>
+<div class="prompt-box">
+<strong>✨ 기대 결과 / 다음 요청</strong>
+<div class="muted-text">테스트를 시작하기 전의 감성적인 소개 화면이 완성됨. 어떤 유형들이 있는지만 살짝 맛보는 단계.<br/><br/>👉 다음: "이제 시작 버튼을 누르면 실제 질문이 넘어가고 결과가 나오게 해보자."</div>
+</div>
+</div>
+</div>
+</article>
+<!-- LEVEL 2 -->
+<article class="step-card">
+<div class="step-no"><span>LEVEL</span><strong>2</strong></div>
+<div class="step-body">
+<h4>질문에 답하면 결과가 나오는 테스트 만들기</h4>
+<div class="prompt-grid">
+<div class="prompt-box">
+<strong>🎯 목표</strong>
+<div class="muted-text">시작 버튼 → 질문 한 개씩 → 보기 선택 → 다음 질문 → 마지막에 4개 유형 중 하나 결과 → 다시 해보기까지 되는 실제 인터랙티브 테스트.</div>
+</div>
+<div class="prompt-box">
+<strong>💬 입력 프롬프트</strong>
+<div class="prompt-text">방금 만든 회사 생존 유형 테스트 페이지를 이어서 수정해줘.
+수정된 결과도 HTML, CSS, JavaScript가 하나의 파일 안에 들어간 완성형 단일 HTML 코드로 다시 제공해줘.
+내가 코드 전체를 복사해서 .html 파일로 저장하면 바로 브라우저에서 열 수 있게 해줘.
 
 이제 "테스트 시작" 버튼을 누르면 실제 테스트가 진행되게 해줘.
 질문은 한 번에 하나씩만 보이게 하고, 보기를 누르면 다음 질문으로 자연스럽게 넘어가게 해줘.
@@ -2120,7 +2103,9 @@
 전체 분위기는 지금 만든 첫 화면 톤을 유지하면서, 요즘 밈 테스트 앱처럼 세련되고 가볍게 해줘.
 배경은 흰색, 포인트는 네이비(#002C5F), 보조색은 바이올렛(#7C63D7) 정도로 쓰면 좋겠어.
 모바일에서도 예쁘게 보이게 해줘.<button class="copy-btn" data-copy-target="prompt-l2">⧉</button></div>
-                      <textarea id="prompt-l2" class="sr-only" aria-hidden="true" readonly>방금 만든 회사 생존 유형 테스트 페이지를 이어서 수정해줘.
+<textarea aria-hidden="true" class="sr-only" id="prompt-l2" readonly="">방금 만든 회사 생존 유형 테스트 페이지를 이어서 수정해줘.
+수정된 결과도 HTML, CSS, JavaScript가 하나의 파일 안에 들어간 완성형 단일 HTML 코드로 다시 제공해줘.
+내가 코드 전체를 복사해서 .html 파일로 저장하면 바로 브라우저에서 열 수 있게 해줘.
 
 이제 "테스트 시작" 버튼을 누르면 실제 테스트가 진행되게 해줘.
 질문은 한 번에 하나씩만 보이게 하고, 보기를 누르면 다음 질문으로 자연스럽게 넘어가게 해줘.
@@ -2141,33 +2126,33 @@
 전체 분위기는 지금 만든 첫 화면 톤을 유지하면서, 요즘 밈 테스트 앱처럼 세련되고 가볍게 해줘.
 배경은 흰색, 포인트는 네이비(#002C5F), 보조색은 바이올렛(#7C63D7) 정도로 쓰면 좋겠어.
 모바일에서도 예쁘게 보이게 해줘.</textarea>
-                    </div>
-                    <div class="prompt-box">
-                      <strong>✨ 기대 결과 / 다음 요청</strong>
-                      <div class="muted-text">소개만 보여주던 정적 페이지가 진짜 테스트 앱으로 진화. 직접 답하면 내 유형이 나오고 다시 해볼 수도 있게 됨.<br><br>👉 다음 (심화): "이제 이 테스트를 더 트렌디하게 다듬고 결과 화면 완성도를 높여보자."</div>
-                    </div>
-                  </div>
-                </div>
-              </article>
-            </div>
-          </div>
-        </div>
-
-        <!-- 추가 작업 (Level 3) — 트렌디한 다듬기 + 공유 요소 -->
-        <div class="bonus-shell">
-          <div class="bonus-head">
-            <span class="bonus-tag">추가 작업 · Level 3 심화</span>
-            <h3>결과 화면을 밈 테스트처럼 다듬고 공유 요소 넣기</h3>
-            <p>기능을 복잡하게 늘리지 말고, 완성된 테스트를 "공유하고 싶을 정도로 예쁘게" 다듬는 단계예요. 아래 프롬프트를 순서대로 하나씩 적용하면 됩니다. 3번은 선택이에요.</p>
-          </div>
-
-          <div class="bonus-steps">
-            <div class="bonus-step">
-              <span class="bonus-num">1</span>
-              <div class="bonus-step-body">
-                <strong>유형별 개성 살리기</strong>
-                <p>네 가지 유형이 서로 분위기가 달라 보이도록 결과 화면에 색과 아이콘 포인트를 다르게 적용합니다.</p>
-                <div class="prompt-text">결과 화면에 유형별 개성을 좀 더 살려줘.
+</div>
+<div class="prompt-box">
+<strong>✨ 기대 결과 / 다음 요청</strong>
+<div class="muted-text">소개만 보여주던 정적 페이지가 진짜 테스트 앱으로 진화. 직접 답하면 내 유형이 나오고 다시 해볼 수도 있게 됨.<br/><br/>👉 다음 (심화): "이제 이 테스트를 더 트렌디하게 다듬고 결과 화면 완성도를 높여보자."</div>
+</div>
+</div>
+</div>
+</article>
+</div>
+</div>
+</div>
+<!-- 추가 작업 (Level 3) — 트렌디한 다듬기 + 공유 요소 -->
+<div class="bonus-shell">
+<div class="bonus-head">
+<span class="bonus-tag">추가 작업 · Level 3 심화</span>
+<h3>결과 화면을 밈 테스트처럼 다듬고 공유 요소 넣기</h3>
+<p>기능을 복잡하게 늘리지 말고, 완성된 테스트를 "공유하고 싶을 정도로 예쁘게" 다듬는 단계예요. 아래 프롬프트를 순서대로 하나씩 적용하면 됩니다. 3번은 선택이에요.</p>
+</div>
+<div class="bonus-steps">
+<div class="bonus-step">
+<span class="bonus-num">1</span>
+<div class="bonus-step-body">
+<strong>유형별 개성 살리기</strong>
+<p>네 가지 유형이 서로 분위기가 달라 보이도록 결과 화면에 색과 아이콘 포인트를 다르게 적용합니다.</p>
+<div class="prompt-text">결과 화면에 유형별 개성을 좀 더 살려줘.
+수정된 결과도 HTML, CSS, JavaScript가 하나의 파일 안에 들어간 완성형 단일 HTML 코드로 다시 제공해줘.
+내가 코드 전체를 복사해서 .html 파일로 저장하면 바로 브라우저에서 열 수 있게 해줘.
 
 네 가지 유형(조용한 생존러, 눈치 만렙 조율러, 일머리 직진러, 아이디어 생존러)이 서로 분위기가 달라 보이도록, 유형마다 대표 색상이랑 대표 아이콘(또는 이모지)을 조금씩 다르게 정해줘.
 결과 카드 배경이나 포인트 색도 내가 나온 유형에 따라 자연스럽게 바뀌게 해줘.
@@ -2175,7 +2160,9 @@
 기능은 건드리지 말고, 결과 화면 비주얼만 유형별로 개성 있게 다듬어줘.
 전체 디자인 톤은 지금까지 만든 화면과 자연스럽게 이어지게 해줘.
 모바일에서도 예쁘게 보이게 해줘.<button class="copy-btn" data-copy-target="prompt-l3-1">⧉</button></div>
-                <textarea id="prompt-l3-1" class="sr-only" aria-hidden="true" readonly>결과 화면에 유형별 개성을 좀 더 살려줘.
+<textarea aria-hidden="true" class="sr-only" id="prompt-l3-1" readonly="">결과 화면에 유형별 개성을 좀 더 살려줘.
+수정된 결과도 HTML, CSS, JavaScript가 하나의 파일 안에 들어간 완성형 단일 HTML 코드로 다시 제공해줘.
+내가 코드 전체를 복사해서 .html 파일로 저장하면 바로 브라우저에서 열 수 있게 해줘.
 
 네 가지 유형(조용한 생존러, 눈치 만렙 조율러, 일머리 직진러, 아이디어 생존러)이 서로 분위기가 달라 보이도록, 유형마다 대표 색상이랑 대표 아이콘(또는 이모지)을 조금씩 다르게 정해줘.
 결과 카드 배경이나 포인트 색도 내가 나온 유형에 따라 자연스럽게 바뀌게 해줘.
@@ -2183,15 +2170,16 @@
 기능은 건드리지 말고, 결과 화면 비주얼만 유형별로 개성 있게 다듬어줘.
 전체 디자인 톤은 지금까지 만든 화면과 자연스럽게 이어지게 해줘.
 모바일에서도 예쁘게 보이게 해줘.</textarea>
-              </div>
-            </div>
-
-            <div class="bonus-step">
-              <span class="bonus-num">2</span>
-              <div class="bonus-step-body">
-                <strong>공유하고 싶은 결과 카드 + 버튼 추가</strong>
-                <p>결과 카드를 캡처해서 친구한테 보내고 싶을 정도로 다듬고, "다시 테스트하기" · "결과 문구 복사하기" 버튼을 붙입니다.</p>
-                <div class="prompt-text">결과 화면을 공유하고 싶을 정도로 밈스럽고 귀엽게 다듬어줘.
+</div>
+</div>
+<div class="bonus-step">
+<span class="bonus-num">2</span>
+<div class="bonus-step-body">
+<strong>공유하고 싶은 결과 카드 + 버튼 추가</strong>
+<p>결과 카드를 캡처해서 친구한테 보내고 싶을 정도로 다듬고, "다시 테스트하기" · "결과 문구 복사하기" 버튼을 붙입니다.</p>
+<div class="prompt-text">결과 화면을 공유하고 싶을 정도로 밈스럽고 귀엽게 다듬어줘.
+수정된 결과도 HTML, CSS, JavaScript가 하나의 파일 안에 들어간 완성형 단일 HTML 코드로 다시 제공해줘.
+내가 코드 전체를 복사해서 .html 파일로 저장하면 바로 브라우저에서 열 수 있게 해줘.
 
 결과 카드는 캡처해서 친구한테 보내고 싶을 만큼 깔끔하고 감각적으로 만들어줘.
 
@@ -2202,7 +2190,9 @@
 기능은 그대로 두고, 결과 화면만 더 밈 테스트답게 감성을 끌어올려줘.
 전체 디자인 톤은 지금까지 만든 화면과 자연스럽게 이어지게 해줘.
 모바일에서도 예쁘게 보여야 해.<button class="copy-btn" data-copy-target="prompt-l3-2">⧉</button></div>
-                <textarea id="prompt-l3-2" class="sr-only" aria-hidden="true" readonly>결과 화면을 공유하고 싶을 정도로 밈스럽고 귀엽게 다듬어줘.
+<textarea aria-hidden="true" class="sr-only" id="prompt-l3-2" readonly="">결과 화면을 공유하고 싶을 정도로 밈스럽고 귀엽게 다듬어줘.
+수정된 결과도 HTML, CSS, JavaScript가 하나의 파일 안에 들어간 완성형 단일 HTML 코드로 다시 제공해줘.
+내가 코드 전체를 복사해서 .html 파일로 저장하면 바로 브라우저에서 열 수 있게 해줘.
 
 결과 카드는 캡처해서 친구한테 보내고 싶을 만큼 깔끔하고 감각적으로 만들어줘.
 
@@ -2213,15 +2203,16 @@
 기능은 그대로 두고, 결과 화면만 더 밈 테스트답게 감성을 끌어올려줘.
 전체 디자인 톤은 지금까지 만든 화면과 자연스럽게 이어지게 해줘.
 모바일에서도 예쁘게 보여야 해.</textarea>
-              </div>
-            </div>
-
-            <div class="bonus-step">
-              <span class="bonus-num">3</span>
-              <div class="bonus-step-body">
-                <strong>(선택) 전체 디자인 수준 한 단계 끌어올리기</strong>
-                <p>기능은 건드리지 않고, 폰트 위계·여백·색감·그림자 같은 디테일만 손봐서 "요즘 잘 만든 서비스" 느낌으로 마무리합니다.</p>
-                <div class="prompt-text">지금 만든 회사 생존 유형 테스트를 전반적으로 더 고급스럽고 트렌디한 비주얼로 다듬어줘.
+</div>
+</div>
+<div class="bonus-step">
+<span class="bonus-num">3</span>
+<div class="bonus-step-body">
+<strong>(선택) 전체 디자인 수준 한 단계 끌어올리기</strong>
+<p>기능은 건드리지 않고, 폰트 위계·여백·색감·그림자 같은 디테일만 손봐서 "요즘 잘 만든 서비스" 느낌으로 마무리합니다.</p>
+<div class="prompt-text">지금 만든 회사 생존 유형 테스트를 전반적으로 더 고급스럽고 트렌디한 비주얼로 다듬어줘.
+수정된 결과도 HTML, CSS, JavaScript가 하나의 파일 안에 들어간 완성형 단일 HTML 코드로 다시 제공해줘.
+내가 코드 전체를 복사해서 .html 파일로 저장하면 바로 브라우저에서 열 수 있게 해줘.
 
 폰트 위계, 여백 간격, 색감 조화, 카드 모서리, 버튼 모양, 그림자 깊이까지
 요즘 잘 디자인된 웹 서비스 느낌이 나게 디테일을 전반적으로 올려줘.
@@ -2229,7 +2220,9 @@
 기능은 건드리지 말고, 보이는 수준만 한 단계 위로 끌어올리는 느낌으로 해줘.
 전체 디자인 톤은 지금까지 만든 화면과 자연스럽게 이어지게 해줘.
 모바일에서 봤을 때도 여백과 정렬이 예쁘게 잡혀 있어야 해.<button class="copy-btn" data-copy-target="prompt-l3-3">⧉</button></div>
-                <textarea id="prompt-l3-3" class="sr-only" aria-hidden="true" readonly>지금 만든 회사 생존 유형 테스트를 전반적으로 더 고급스럽고 트렌디한 비주얼로 다듬어줘.
+<textarea aria-hidden="true" class="sr-only" id="prompt-l3-3" readonly="">지금 만든 회사 생존 유형 테스트를 전반적으로 더 고급스럽고 트렌디한 비주얼로 다듬어줘.
+수정된 결과도 HTML, CSS, JavaScript가 하나의 파일 안에 들어간 완성형 단일 HTML 코드로 다시 제공해줘.
+내가 코드 전체를 복사해서 .html 파일로 저장하면 바로 브라우저에서 열 수 있게 해줘.
 
 폰트 위계, 여백 간격, 색감 조화, 카드 모서리, 버튼 모양, 그림자 깊이까지
 요즘 잘 디자인된 웹 서비스 느낌이 나게 디테일을 전반적으로 올려줘.
@@ -2237,54 +2230,50 @@
 기능은 건드리지 말고, 보이는 수준만 한 단계 위로 끌어올리는 느낌으로 해줘.
 전체 디자인 톤은 지금까지 만든 화면과 자연스럽게 이어지게 해줘.
 모바일에서 봤을 때도 여백과 정렬이 예쁘게 잡혀 있어야 해.</textarea>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <!-- CLOSING -->
-    <section class="section" id="closing">
-      <div class="container">
-        <div class="section-head">
-          <span class="eyebrow">마무리</span>
-          <h2>코딩을 잘하는 시대에서,<br>문제를 잘 정의하는 시대로.</h2>
-          <p>완벽한 코드는 AI의 몫, 완벽한 질문은 우리의 몫입니다.</p>
-        </div>
-        <div class="closing-grid">
-          <article class="card closing-card">
-            <span class="icon">①</span>
-            <h4>작게 시작하세요</h4>
-            <p>처음부터 거창한 걸 만들려 하지 말고, 엑셀로 하던 반복 업무 하나를 바꿔보는 것부터 시작하세요.</p>
-          </article>
-          <article class="card closing-card">
-            <span class="icon">②</span>
-            <h4>두려워하지 마세요</h4>
-            <p>망가지면 "방금 넣은 부분 때문에 버튼이 안 돼. 고쳐줘"라고 AI에게 말하면 그만입니다.</p>
-          </article>
-          <article class="card closing-card">
-            <span class="icon">③</span>
-            <h4>공유하고 확산하세요</h4>
-            <p>작은 툴을 동료에게 공유해보세요. "이거 어떻게 만들었어?"가 변화의 시작입니다.</p>
-          </article>
-        </div>
-        <div style="text-align: center;">
-          <a href="#top" class="btn btn-primary">처음으로 돌아가기</a>
-        </div>
-      </div>
-    </section>
-
-  </main>
-
-  <footer class="site-footer">
-    <div class="container">
-      <strong>비개발자를 위한 바이브코딩 실습</strong>
-      <span>본 페이지의 링크를 저장해두시면, 웹/모바일 언제 어디서든 반복해서 학습 가능합니다.</span>
-    </div>
-  </footer>
-
-  <style>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CLOSING -->
+<section class="section" id="closing">
+<div class="container">
+<div class="section-head">
+<span class="eyebrow">마무리</span>
+<h2>코딩을 잘하는 시대에서,<br/>문제를 잘 정의하는 시대로.</h2>
+<p>완벽한 코드는 AI의 몫, 완벽한 질문은 우리의 몫입니다.</p>
+</div>
+<div class="closing-grid">
+<article class="card closing-card">
+<span class="icon">①</span>
+<h4>작게 시작하세요</h4>
+<p>처음부터 거창한 걸 만들려 하지 말고, 엑셀로 하던 반복 업무 하나를 바꿔보는 것부터 시작하세요.</p>
+</article>
+<article class="card closing-card">
+<span class="icon">②</span>
+<h4>두려워하지 마세요</h4>
+<p>망가지면 "방금 넣은 부분 때문에 버튼이 안 돼. 고쳐줘"라고 AI에게 말하면 그만입니다.</p>
+</article>
+<article class="card closing-card">
+<span class="icon">③</span>
+<h4>공유하고 확산하세요</h4>
+<p>작은 툴을 동료에게 공유해보세요. "이거 어떻게 만들었어?"가 변화의 시작입니다.</p>
+</article>
+</div>
+<div style="text-align: center;">
+<a class="btn btn-primary" href="#top">처음으로 돌아가기</a>
+</div>
+</div>
+</section>
+</main>
+<footer class="site-footer">
+<div class="container">
+<strong>비개발자를 위한 바이브코딩 실습</strong>
+<span>본 페이지의 링크를 저장해두시면, 웹/모바일 언제 어디서든 반복해서 학습 가능합니다.</span>
+</div>
+</footer>
+<style>
     .sr-only {
       position: absolute !important;
       width: 1px; height: 1px;
@@ -2295,8 +2284,7 @@
       border: 0;
     }
   </style>
-
-  <script>
+<script>
     // 1) 탭 전환
     const tabs = document.querySelectorAll('.lab-tab');
     const panels = document.querySelectorAll('.lab-panel');
@@ -2391,6 +2379,5 @@
       initPromptCollapse();
     }
   </script>
-
 </body>
 </html>
