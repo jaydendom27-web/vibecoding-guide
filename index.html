@@ -528,6 +528,202 @@
       line-height: 1.5;
     }
 
+
+
+    /* Work use cases */
+    .work-use-shell {
+      display: grid;
+      grid-template-columns: 1.1fr 1.9fr;
+      gap: 18px;
+      align-items: stretch;
+    }
+    .work-use-lead {
+      position: relative;
+      overflow: hidden;
+      padding: 32px;
+      border-radius: var(--radius-lg);
+      color: #fff;
+      background: linear-gradient(145deg, var(--navy), var(--violet));
+      box-shadow: var(--shadow-md);
+      min-height: 100%;
+    }
+    .work-use-lead::after {
+      content: "";
+      position: absolute;
+      right: -56px;
+      bottom: -56px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: rgba(255, 255, 255, 0.12);
+    }
+    .work-use-lead .kicker {
+      display: inline-flex;
+      align-items: center;
+      padding: 5px 12px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.16);
+      font-size: 12px;
+      font-weight: 800;
+      margin-bottom: 16px;
+      position: relative;
+      z-index: 1;
+    }
+    .work-use-lead h3 {
+      font-size: clamp(24px, 3vw, 32px);
+      line-height: 1.25;
+      letter-spacing: -0.02em;
+      margin-bottom: 14px;
+      position: relative;
+      z-index: 1;
+    }
+    .work-use-lead p {
+      color: rgba(255, 255, 255, 0.82);
+      font-size: 15px;
+      line-height: 1.65;
+      position: relative;
+      z-index: 1;
+    }
+    .work-use-list {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 14px;
+    }
+    .work-card {
+      padding: 22px 22px 20px;
+      border-radius: var(--radius-md);
+      background: #fff;
+      border: 1px solid var(--line);
+      box-shadow: var(--shadow-sm);
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
+    }
+    .work-card:hover {
+      transform: translateY(-3px);
+      box-shadow: var(--shadow-md);
+    }
+    .work-card .tag-row {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 10px;
+      margin-bottom: 12px;
+    }
+    .work-card .work-tag {
+      display: inline-flex;
+      align-items: center;
+      padding: 4px 10px;
+      border-radius: 999px;
+      background: var(--blue-soft);
+      color: var(--blue);
+      font-size: 11.5px;
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .work-card .work-emoji {
+      font-size: 24px;
+      line-height: 1;
+    }
+    .work-card h4 {
+      font-size: 17px;
+      color: var(--navy);
+      margin-bottom: 8px;
+      line-height: 1.35;
+    }
+    .work-card p {
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.6;
+      margin-bottom: 10px;
+    }
+    .work-card .example {
+      display: block;
+      padding-top: 10px;
+      border-top: 1px dashed var(--line-soft);
+      color: var(--text);
+      font-size: 13.5px;
+      line-height: 1.55;
+    }
+    .work-card .example strong {
+      color: var(--navy);
+      font-weight: 800;
+    }
+    .work-boundary {
+      margin-top: 20px;
+      padding: 18px 22px;
+      border-radius: var(--radius-md);
+      background: var(--surface);
+      border: 1px solid var(--line-soft);
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 12px;
+    }
+    .boundary-item {
+      display: flex;
+      gap: 10px;
+      align-items: flex-start;
+      font-size: 14px;
+      color: var(--muted);
+      line-height: 1.55;
+    }
+    .boundary-item strong {
+      color: var(--navy);
+      font-weight: 900;
+      white-space: nowrap;
+    }
+    .boundary-item .mark {
+      width: 24px;
+      height: 24px;
+      flex: 0 0 auto;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      border-radius: 50%;
+      background: #fff;
+      border: 1px solid var(--line);
+      color: var(--violet);
+      font-size: 13px;
+      font-weight: 900;
+    }
+
+    /* Practice flow helper */
+    .practice-flow {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 12px;
+      margin: 0 0 24px;
+    }
+    .practice-flow-card {
+      padding: 16px 16px 15px;
+      border-radius: var(--radius-md);
+      background: #fff;
+      border: 1px solid var(--line-soft);
+      box-shadow: var(--shadow-sm);
+    }
+    .practice-flow-card span {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      height: 24px;
+      padding: 0 9px;
+      border-radius: 999px;
+      background: var(--violet-soft);
+      color: var(--violet);
+      font-size: 11px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+    .practice-flow-card strong {
+      display: block;
+      color: var(--navy);
+      font-size: 14px;
+      margin-bottom: 4px;
+    }
+    .practice-flow-card p {
+      color: var(--muted);
+      font-size: 12.5px;
+      line-height: 1.5;
+    }
+
     /* Levels (Table) */
     .levels-table-wrap {
       border: 1px solid var(--line);
@@ -1065,7 +1261,7 @@
     }
     .prompt-grid {
       display: grid;
-      grid-template-columns: repeat(3, 1fr);
+      grid-template-columns: minmax(180px, 0.85fr) minmax(280px, 1.55fr) minmax(180px, 1fr);
       gap: 12px;
     }
     .prompt-box {
@@ -1215,7 +1411,13 @@
       .levels-main { grid-template-columns: 1fr; }
       .wwh { grid-template-columns: 1fr; }
       .wwh-ai { border-left: none; border-top: 1px dashed var(--line); }
+
+      .work-use-shell { grid-template-columns: 1fr; }
+      .work-use-list { grid-template-columns: 1fr; }
+      .work-boundary { grid-template-columns: 1fr; }
+      .practice-flow { grid-template-columns: repeat(2, 1fr); }
       .prompt-grid { grid-template-columns: 1fr; }
+
       .closing-grid { grid-template-columns: 1fr; }
       .hero-meta { grid-template-columns: 1fr; }
       .llm-compare-wrap { grid-template-columns: 1fr; gap: 14px; }
@@ -1276,6 +1478,12 @@
       .section-head { margin-bottom: 36px; }
       .grid-2 { grid-template-columns: 1fr; }
       .grid-4, .grid-5 { grid-template-columns: 1fr; }
+
+      .work-use-lead { padding: 26px 22px; }
+      .work-card { padding: 20px 18px; }
+      .practice-flow { grid-template-columns: 1fr; }
+      .boundary-item { font-size: 13.5px; }
+
       .step-card { grid-template-columns: 1fr; }
       .step-no { flex-direction: row; justify-content: flex-start; min-height: auto; padding: 10px 14px; }
       .lab-panel { padding: 20px; }
@@ -1319,7 +1527,7 @@
       </a>
       <nav class="nav-links" id="sectionNav" aria-label="섹션 내비게이션">
         <a href="#top" data-sections="top,intro">소개</a>
-        <a href="#vibe" data-sections="vibe,code,framework,levels,tools,habits">핵심 개념</a>
+        <a href="#vibe" data-sections="vibe,code,framework,work-use,levels,tools,habits">핵심 개념</a>
         <a href="#practice" data-sections="practice,closing">실습하기</a>
       </nav>
     </div>
@@ -1480,12 +1688,67 @@
       </div>
     </section>
 
+
+    <!-- WORK USE CASES -->
+    <section class="section" id="work-use">
+      <div class="container">
+        <div class="section-head">
+          <span class="eyebrow">업무 활용 사례</span>
+          <h2>웹페이지/앱으로<br>업무에서 무엇을 할 수 있을까?</h2>
+          <p>핵심은 거창한 시스템 개발이 아니라, 반복 설명·입력·정리·공유가 필요한 일을 작은 화면으로 바꾸는 것입니다.</p>
+        </div>
+
+        <div class="work-use-shell">
+          <aside class="work-use-lead">
+            <span class="kicker">업무 적용 관점</span>
+            <h3>문서 하나를<br>“눌러보고 쓰는 화면”으로 바꿉니다.</h3>
+            <p>공지문, 엑셀 체크리스트, 회의 메모, 보고서 초안처럼 정적인 자료를 사용자가 바로 이해하고 입력하고 확인할 수 있는 웹페이지나 간단한 앱으로 전환할 수 있습니다.</p>
+          </aside>
+
+          <div class="work-use-list" aria-label="업무 활용 예시">
+            <article class="work-card">
+              <div class="tag-row"><span class="work-tag">Level 1</span><span class="work-emoji" aria-hidden="true">📌</span></div>
+              <h4>공지·가이드 페이지</h4>
+              <p>긴 안내문을 카드형 구조로 바꿔 핵심만 빠르게 보게 합니다.</p>
+              <span class="example"><strong>예시</strong> AI 사용 가이드, 교육 안내, 행사 신청 방법, 신규 제도 안내 페이지</span>
+            </article>
+
+            <article class="work-card">
+              <div class="tag-row"><span class="work-tag">Level 2</span><span class="work-emoji" aria-hidden="true">🧮</span></div>
+              <h4>간단 계산기·판정 도구</h4>
+              <p>사용자가 값을 넣으면 결과와 판단 기준을 즉시 보여줍니다.</p>
+              <span class="example"><strong>예시</strong> 품질 이슈 중대성 판정, 교육 대상 우선순위 계산, 비용·일정 간이 산정</span>
+            </article>
+
+            <article class="work-card">
+              <div class="tag-row"><span class="work-tag">Level 2</span><span class="work-emoji" aria-hidden="true">📝</span></div>
+              <h4>입력폼·체크리스트</h4>
+              <p>받아야 할 정보를 빠짐없이 입력하게 하고, 누락을 줄입니다.</p>
+              <span class="example"><strong>예시</strong> 회의 안건 수집, 현장 점검 체크리스트, AI Needs 접수 화면</span>
+            </article>
+
+            <article class="work-card">
+              <div class="tag-row"><span class="work-tag">Level 3</span><span class="work-emoji" aria-hidden="true">📊</span></div>
+              <h4>현황판·브리핑 화면</h4>
+              <p>여러 정보를 한 화면에 모아 경영층·팀장이 바로 보게 합니다.</p>
+              <span class="example"><strong>예시</strong> 주간 업무 현황, 프로젝트 이슈 보드, 대표이사 모바일 브리핑</span>
+            </article>
+          </div>
+        </div>
+
+        <div class="work-boundary" role="note" aria-label="업무 활용 시 유의 기준">
+          <div class="boundary-item"><span class="mark">✓</span><span><strong>권장</strong> 개인·팀 단위의 설명, 정리, 입력, 간단 계산, 시연용 프로토타입부터 시작합니다.</span></div>
+          <div class="boundary-item"><span class="mark">!</span><span><strong>주의</strong> 로그인, 권한, 개인정보, 회사 핵심 데이터 저장이 필요한 앱은 정식 IT·보안 절차와 함께 검토합니다.</span></div>
+        </div>
+      </div>
+    </section>
+
     <!-- LEVELS -->
     <section class="section" id="levels">
       <div class="container">
         <div class="section-head">
           <span class="eyebrow">비개발자 레벨</span>
-          <h2>이번 과정 실습은 Level 1~2 중심으로, <br>Level 3 일부까지 다룹니다.</br></h2>
+          <h2>이번 과정 실습은 Level 1~2 중심으로,<br>Level 3 일부까지 다룹니다.</h2>
           <p>현실적으로 비개발자가 바로 만들어볼 수 있는 범위이자, 업무에 곧바로 연결할 수 있는 수준입니다.</p>
         </div>
         <div class="levels-table-wrap">
@@ -1544,6 +1807,7 @@
           <span class="eyebrow">LLM AI TOP 3</span>
           <h2>어떤 도구를 쓸까.</h2>
           <p>대표 LLM의 특성과 코딩 활용 도구를 한눈에 비교합니다.</p>
+          <p>※ LLM : Large Language Model, 사람의 언어를 이해하고 답변하는 생성형 인공지능 모델</p>
         </div>
 
         <div class="llm-compare-wrap">
@@ -1664,6 +1928,13 @@
           <p>추천 도구는 <strong style="color:var(--navy)">Gemini</strong>입니다. Canvas 모드에서 결과 화면을 실시간으로 보며 따라해보세요.</p>
         </div>
 
+        <div class="practice-flow" aria-label="실습 진행 흐름">
+          <div class="practice-flow-card"><span>준비</span><strong>Canvas 켜기</strong><p>입력 전 화면 렌더링 모드를 먼저 설정합니다.</p></div>
+          <div class="practice-flow-card"><span>Level 1</span><strong>소개 화면</strong><p>정적 페이지로 구조와 분위기를 잡습니다.</p></div>
+          <div class="practice-flow-card"><span>Level 2</span><strong>질문 기능</strong><p>버튼·선택·결과 화면을 연결합니다.</p></div>
+          <div class="practice-flow-card"><span>Level 3</span><strong>디자인 심화</strong><p>결과 카드와 공유 요소를 다듬습니다.</p></div>
+        </div>
+
         <!-- Canvas 사전 안내 -->
         <div class="canvas-notice" role="note">
           <div class="canvas-notice-icon" aria-hidden="true">!</div>
@@ -1679,7 +1950,7 @@
             <div class="lab-head">
               <span class="tag">실습 · Gemini Canvas</span>
               <h3>🧭 회사 생존 유형 테스트</h3>
-              <p>회사에서 나는 어떤 방식으로 살아남는 사람일까? 가벼운 질문 몇 개로 알아보는 밈 테스트 페이지를 만듭니다. Level 1 → Level 2 → Level 3로 갈수록 결과가 눈에 보이게 달라져요.</p>
+              <p>회사에서 나는 어떤 방식으로 살아남는 사람일까? 가벼운 질문 몇 개로 알아보는 밈 테스트 페이지를 만듭니다. 아래 단계는 그대로 복사해 넣을 수 있고, Level 1 → Level 2 → Level 3로 갈수록 결과 차이가 눈에 보이게 구성했습니다.</p>
             </div>
 
             <div class="steps">
